@@ -260,31 +260,48 @@
       <!-- Perfil de FHYA a la izquierda -->
       <div class="flex items-center gap-3 group cursor-pointer" onclick="openProfileModal()">
         <div class="relative">
-          <!-- Avatar circular SVG ilustrado estilo Play Together Cozy -->
-          <div class="w-12 h-12 sm:w-[52px] sm:h-[52px] rounded-full bg-gradient-to-tr from-amber-200 via-rose-100 to-teal-100 p-0.5 shadow-md ring-2 ring-white/90 overflow-hidden transition-transform duration-300 group-hover:scale-105">
-            <svg viewBox="0 0 100 100" class="w-full h-full">
-              <circle cx="50" cy="50" r="50" fill="#fef3c7"/>
-              <!-- Coletas esponjosas rubio miel -->
-              <circle cx="22" cy="56" r="14" fill="#f59e0b"/>
-              <circle cx="78" cy="56" r="14" fill="#f59e0b"/>
-              <path d="M24 54 C20 26, 80 26, 76 54 C78 76, 68 86, 50 86 C32 86, 22 76, 24 54 Z" fill="#fbbf24"/>
-              <!-- Rostro -->
-              <circle cx="50" cy="55" r="21" fill="#fff5ee"/>
-              <!-- Mejillas rosadas -->
-              <ellipse cx="38" cy="61" rx="4" ry="2.2" fill="#fb7185" opacity="0.65"/>
-              <ellipse cx="62" cy="61" rx="4" ry="2.2" fill="#fb7185" opacity="0.65"/>
-              <!-- Ojos grandes expresivos -->
-              <ellipse cx="42" cy="54" rx="3.5" ry="4.6" fill="#134e4a"/>
-              <ellipse cx="58" cy="54" rx="3.5" ry="4.6" fill="#134e4a"/>
-              <circle cx="41" cy="52.5" r="1.4" fill="#ffffff"/>
-              <circle cx="57" cy="52.5" r="1.4" fill="#ffffff"/>
-              <!-- Sonrisa -->
-              <path d="M47 62 Q50 65.5 53 62" stroke="#e11d48" stroke-width="2" stroke-linecap="round" fill="none"/>
-              <!-- Flequillo -->
-              <path d="M28 50 C30 28, 70 28, 72 50 C63 41, 56 46, 50 37 C44 46, 37 41, 28 50 Z" fill="#fde68a"/>
-              <!-- Gorrito de Patito Cozy -->
-              <path d="M32 34 C34 18, 66 18, 68 34 Z" fill="#facc15" stroke="#ca8a04" stroke-width="1.5"/>
-              <ellipse cx="50" cy="24" rx="7" ry="3.5" fill="#fb923c"/>
+          <!-- Avatar circular SVG fiel al retrato de la imagen -->
+          <div class="w-12 h-12 sm:w-[54px] sm:h-[54px] rounded-full bg-[#fdfbf7] p-0.5 shadow-md ring-2 ring-white/95 overflow-hidden transition-transform duration-300 group-hover:scale-105">
+            <svg viewBox="0 0 120 120" class="w-full h-full">
+              <circle cx="60" cy="60" r="60" fill="#fdfbf7"/>
+              <circle cx="24" cy="30" r="5" fill="#f3d5dc" opacity="0.7"/>
+              <circle cx="96" cy="32" r="4" fill="#d3e3ba" opacity="0.8"/>
+              <!-- Pañuelo rojo fresa con lunares blancos -->
+              <path d="M18 58 Q60 12 102 58 L94 82 L26 82 Z" fill="#b83b46" stroke="#6e3a38" stroke-width="2"/>
+              <circle cx="44" cy="36" r="1.8" fill="#fdfbf7" opacity="0.85"/>
+              <circle cx="76" cy="36" r="1.8" fill="#fdfbf7" opacity="0.85"/>
+              <circle cx="60" cy="26" r="1.8" fill="#fdfbf7" opacity="0.85"/>
+              <!-- Volante blanco fruncido -->
+              <path d="M22 60 Q32 48 42 56 Q52 44 60 52 Q68 44 78 56 Q88 48 98 60" stroke="#ffffff" stroke-width="6.5" stroke-linecap="round" fill="none"/>
+              <path d="M22 60 Q32 48 42 56 Q52 44 60 52 Q68 44 78 56 Q88 48 98 60" stroke="#8c5a56" stroke-width="1.4" stroke-linecap="round" fill="none"/>
+              <!-- Coletas esponjosas rosa pálido -->
+              <circle cx="24" cy="74" r="14" fill="#f8d2db" stroke="#8c5a56" stroke-width="1.8"/>
+              <circle cx="96" cy="74" r="14" fill="#f8d2db" stroke="#8c5a56" stroke-width="1.8"/>
+              <!-- Carita chibi -->
+              <path d="M35 66 C35 46, 85 46, 85 66 C85 86, 72 95, 60 95 C48 95, 35 86, 35 66 Z" fill="#fff7f3" stroke="#8c5a56" stroke-width="1.8"/>
+              <!-- Mejillas -->
+              <ellipse cx="43" cy="76" rx="5.5" ry="2.8" fill="#f7a8b8" opacity="0.65"/>
+              <ellipse cx="77" cy="76" rx="5.5" ry="2.8" fill="#f7a8b8" opacity="0.65"/>
+              <!-- Guiño izquierdo + ojo verde lima derecho -->
+              <path d="M42 69 Q48 64 54 70" stroke="#7d9c48" stroke-width="2.6" stroke-linecap="round" fill="none"/>
+              <ellipse cx="72" cy="69" rx="4.6" ry="5.8" fill="#98ba5e" stroke="#637d38" stroke-width="1.2"/>
+              <ellipse cx="72" cy="71" rx="2.8" ry="3.4" fill="#dceca8"/>
+              <circle cx="70.5" cy="66.5" r="1.8" fill="#ffffff"/>
+              <!-- Gafitas redondas con borde superior coral e inferior blanco -->
+              <rect x="38" y="63" width="18" height="13" rx="6" fill="none" stroke="#d95b66" stroke-width="2"/>
+              <path d="M40 74 Q47 77 54 74" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+              <rect x="64" y="63" width="18" height="13" rx="6" fill="none" stroke="#d95b66" stroke-width="2"/>
+              <path d="M66 74 Q73 77 80 74" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+              <path d="M56 69 Q60 67 64 69" stroke="#d95b66" stroke-width="1.8" fill="none"/>
+              <!-- Boquita abierta cute -->
+              <ellipse cx="60" cy="82" rx="2.6" ry="3.4" fill="#e87a8a" stroke="#8c5a56" stroke-width="1.1"/>
+              <!-- Flequillo partido + ahoge -->
+              <path d="M58 28 C55 14, 68 12, 70 22 C65 21, 61 24, 60 29 Z" fill="#f8d2db" stroke="#8c5a56" stroke-width="1.6"/>
+              <path d="M33 65 C35 42, 58 42, 60 56 C62 42, 85 42, 87 65 C77 54, 67 58, 60 49 C53 58, 43 54, 33 65 Z" fill="#f8d2db" stroke="#8c5a56" stroke-width="1.8"/>
+              <!-- Lacito verde oliva en el pañuelo -->
+              <g transform="translate(42, 34) rotate(-20)">
+                <path d="M0 0 L-9 -5 L-7 3 L-11 7 L0 3 L11 7 L7 3 L9 -5 Z" fill="#89ab52" stroke="#577030" stroke-width="1.3"/>
+              </g>
             </svg>
           </div>
           <!-- Punto verde "En La Plaza" -->
@@ -298,25 +315,28 @@
           </div>
           <p class="text-[10px] sm:text-[11px] font-bold tracking-widest uppercase text-teal-50/95">
             PLAY TOGETHER • KAIA CREATOR
-          </p>
-        </div>
-      </div>
+      <!-- Navegación de Pestañas tipo Píldora + Control de soniditos -->
+      <div class="flex items-center gap-2">
+        <nav class="flex items-center gap-1 sm:gap-1.5 bg-teal-950/20 backdrop-blur-md p-1.5 rounded-full border border-white/25">
+          <button onclick="playKaiaSfx('tap'); switchTab('home', this)" class="nav-pill px-3.5 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold transition-all text-white/95 hover:text-white">
+            Home
+          </button>
+          <button onclick="playKaiaSfx('tap'); switchTab('about', this)" class="nav-pill active bg-amber-300 text-teal-950 shadow-sm px-3.5 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-black transition-all">
+            About
+          </button>
+          <button onclick="playKaiaSfx('tap'); switchTab('edits', this)" class="nav-pill px-3.5 sm:px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold transition-all text-white/95 hover:text-white">
+            House &amp; Pets
+          </button>
+        </nav>
 
-      <!-- Navegación de Pestañas tipo Píldora -->
-      <nav class="flex items-center gap-1.5 sm:gap-2 bg-teal-950/20 backdrop-blur-md p-1.5 rounded-full border border-white/25">
-        <button onclick="switchTab('home', this)" class="nav-pill px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold transition-all text-white/95 hover:text-white">
-          Home
+        <!-- Botón de soniditos interactivos -->
+        <button id="sfx-toggle-btn" onclick="toggleSfx()" title="Activar/Silenciar soniditos cozy" class="w-9 h-9 rounded-full bg-white/20 hover:bg-white/30 backdrop-blur-md border border-white/35 flex items-center justify-center text-white transition-transform active:scale-95">
+          <i id="sfx-icon" class="fa-solid fa-volume-high text-xs"></i>
         </button>
-        <button onclick="switchTab('about', this)" class="nav-pill active bg-amber-300 text-teal-950 shadow-sm px-4 py-1.5 rounded-full text-xs sm:text-sm font-black transition-all">
-          About
-        </button>
-        <button onclick="switchTab('edits', this)" class="nav-pill px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold transition-all text-white/95 hover:text-white">
-          House &amp; Pets
-        </button>
-      </nav>
+      </div>
     </header>
 
-    <!-- REPRODUCTOR DE MÚSICA COZY DE ISLA KAIA (3 CANCIONES COZY A ELEGIR + MP3) -->
+    <!-- REPRODUCTOR DE MÚSICA COZY DE ISLA KAIA (2 CANCIONES COZY A ELEGIR + MP3) -->
     <section class="mb-5">
       <div class="bg-white/95 backdrop-blur-md border-[3px] border-teal-400 rounded-[28px] sm:rounded-full px-4 py-2.5 shadow-lg flex flex-wrap items-center justify-between gap-3 text-[#145369]">
         <!-- Disco de vinilo tropical + título -->
@@ -340,7 +360,7 @@
           </div>
         </div>
 
-        <!-- Selector directo de las 3 canciones cozy + Play + Tu MP3 -->
+        <!-- Selector de 2 canciones cozy + Play + Tu MP3 -->
         <div class="flex items-center gap-1.5 sm:gap-2 shrink-0 flex-wrap">
           <div class="flex items-center gap-1 bg-teal-50 p-1 rounded-full border border-teal-200" role="group" aria-label="Elegir canción cozy">
             <button onclick="selectPresetTrack(0)" data-track-idx="0" class="track-pill active px-2.5 py-1 rounded-full text-[11px] font-extrabold bg-teal-500 text-white shadow-xs transition-all">
@@ -349,9 +369,6 @@
             <button onclick="selectPresetTrack(1)" data-track-idx="1" class="track-pill px-2.5 py-1 rounded-full text-[11px] font-extrabold text-teal-800 hover:bg-teal-100 transition-all">
               🏡 2
             </button>
-            <button onclick="selectPresetTrack(2)" data-track-idx="2" class="track-pill px-2.5 py-1 rounded-full text-[11px] font-extrabold text-teal-800 hover:bg-teal-100 transition-all">
-              🌅 3
-            </button>
           </div>
 
           <button id="music-play-btn" onclick="toggleMusic()" title="Reproducir / Pausar música" class="w-9 h-9 rounded-full bg-gradient-to-r from-teal-500 to-emerald-500 hover:opacity-95 text-white flex items-center justify-center text-xs shadow-md transition-transform active:scale-95">
@@ -359,7 +376,7 @@
           </button>
 
           <!-- Subir canción MP3 propia -->
-          <label for="custom-audio-input" title="Subir tu propia canción (.mp3 / .wav)" class="cursor-pointer px-3 py-1.5 rounded-full bg-amber-100 hover:bg-amber-200 text-amber-900 font-extrabold text-[11px] flex items-center gap-1.5 transition-colors border border-amber-300">
+          <label for="custom-audio-input" title="Subir tu propia canción (.mp3 / .wav)" class="cursor-pointer px-3 py-1.5 rounded-full bg-amber-100 hover:bg-amber-200 text-amber-800 font-extrabold text-[11px] flex items-center gap-1.5 transition-colors border border-amber-300">
             <i class="fa-solid fa-music"></i>
             <span class="hidden sm:inline">Tu MP3</span>
           </label>
@@ -368,19 +385,19 @@
       </div>
     </section>
 
-    <!-- 2. TARJETA HERO PRINCIPAL (BANNER SUPERIOR CON PERSONAJE DE PLAY TOGETHER) -->
+    <!-- 2. TARJETA HERO PRINCIPAL -->
     <section class="relative mb-6 sm:mb-7 pt-2">
       <div class="hero-card rounded-[28px] p-6 sm:p-8 md:p-9 relative overflow-visible">
         <div class="absolute inset-0 rounded-[28px] overflow-hidden pointer-events-none">
           <div class="absolute -top-16 -left-16 w-56 h-56 bg-white/20 rounded-full blur-2xl"></div>
-          <div class="absolute bottom-0 right-1/3 w-64 h-32 bg-amber-100/25 rounded-full blur-xl"></div>
+          <div class="absolute bottom-0 right-1/3 w-64 h-32 bg-amber-200/25 rounded-full blur-xl"></div>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-12 items-center gap-4 relative z-10">
           <!-- Texto y Carrusel (Izquierda) -->
           <div class="md:col-span-7 pr-0 md:pr-2">
             <p class="text-xs sm:text-sm font-extrabold tracking-widest text-amber-200 mb-1.5 flex items-center gap-2">
-              <span>ISLA KAIA • PLAY TOGETHER</span>
+              <span>プレイトゥギャザー • PLAY TOGETHER</span>
               <span class="inline-block w-1.5 h-1.5 rounded-full bg-amber-200 animate-ping"></span>
             </p>
 
@@ -396,135 +413,275 @@
             <!-- Indicadores de Carrusel + Botón IG -->
             <div class="flex flex-wrap items-center justify-between gap-3 mt-5">
               <div class="flex items-center gap-2.5">
-                <button onclick="setHeroSlide(0)" aria-label="Slide 1" class="hero-dot h-2.5 w-10 rounded-full bg-white transition-all duration-300 shadow-sm"></button>
-                <button onclick="setHeroSlide(1)" aria-label="Slide 2" class="hero-dot h-2.5 w-8 rounded-full bg-white/45 hover:bg-white/75 transition-all duration-300"></button>
-                <button onclick="setHeroSlide(2)" aria-label="Slide 3" class="hero-dot h-2.5 w-8 rounded-full bg-white/45 hover:bg-white/75 transition-all duration-300"></button>
+                <button onclick="playKaiaSfx('tap'); setHeroSlide(0)" aria-label="Slide 1" class="hero-dot h-2.5 w-10 rounded-full bg-white transition-all duration-300 shadow-sm"></button>
+                <button onclick="playKaiaSfx('tap'); setHeroSlide(1)" aria-label="Slide 2" class="hero-dot h-2.5 w-8 rounded-full bg-white/45 hover:bg-white/75 transition-all duration-300"></button>
+                <button onclick="playKaiaSfx('tap'); setHeroSlide(2)" aria-label="Slide 3" class="hero-dot h-2.5 w-8 rounded-full bg-white/45 hover:bg-white/75 transition-all duration-300"></button>
               </div>
 
-              <a href="https://www.instagram.com/fhya.cozy?jplx=MTNidHg0MjlncTJwaw==" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 bg-white/25 hover:bg-white/35 backdrop-blur-md border border-white/50 text-white text-xs font-extrabold px-3.5 py-1.5 rounded-full transition-all shadow-xs">
+              <a href="https://www.instagram.com/fhya.cozy?jplx=MTNidHg0MjlncTJwaw==" target="_blank" rel="noopener noreferrer" onclick="playKaiaSfx('soft')" class="inline-flex items-center gap-1.5 bg-white/25 hover:bg-white/35 backdrop-blur-md border border-white/50 text-white text-xs font-extrabold px-3.5 py-1.5 rounded-full transition-all shadow-xs">
                 <i class="fa-brands fa-instagram text-sm text-amber-200"></i>
                 <span>Seguir @fhya.cozy</span>
               </a>
             </div>
           </div>
 
-          <!-- ILUSTRACIÓN DE FHYA ESTILO PLAY TOGETHER + PATITO FLOTADOR -->
+          <!-- ILUSTRACIÓN DE FHYA RECREADA TAL CUAL LA IMAGEN DE REFERENCIA -->
           <div class="md:col-span-5 relative flex justify-center md:justify-end mt-2 md:mt-0">
-            <div onclick="showToast('🐤 ¡Cuac! FHYA te invita a su fiesta en Isla Kaia')" class="w-[255px] sm:w-[290px] md:w-[325px] md:-mt-20 md:-mb-10 md:-mr-5 animate-float select-none cursor-pointer group">
-              <svg viewBox="0 0 380 370" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto drop-shadow-[0_18px_26px_rgba(14,84,96,0.34)] transition-transform duration-300 group-hover:scale-[1.02]">
+            <div onclick="playKaiaSfx('magic'); showToast('🍒 ¡FHYA con su outfit de cerezas te saluda desde Isla Kaia!')" class="w-[285px] sm:w-[325px] md:w-[375px] md:-mt-24 md:-mb-12 md:-mr-6 animate-float select-none cursor-pointer group">
+              <svg viewBox="0 0 460 520" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto drop-shadow-[0_18px_26px_rgba(14,84,96,0.28)] transition-transform duration-300 group-hover:scale-[1.02]">
                 <defs>
-                  <radialGradient id="kaiaAura" cx="50%" cy="48%" r="50%">
-                    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.88"/>
-                    <stop offset="55%" stop-color="#fef08a" stop-opacity="0.4"/>
-                    <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+                  <radialGradient id="refPaperGlow" cx="50%" cy="48%" r="50%">
+                    <stop offset="0%" stop-color="#fdfbf7" stop-opacity="0.96"/>
+                    <stop offset="68%" stop-color="#fdfbf7" stop-opacity="0.72"/>
+                    <stop offset="100%" stop-color="#fdfbf7" stop-opacity="0"/>
                   </radialGradient>
-                  <linearGradient id="kaiaHair" x1="190" y1="75" x2="190" y2="310" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stop-color="#fef3c7"/>
-                    <stop offset="45%" stop-color="#fcd34d"/>
-                    <stop offset="100%" stop-color="#d97706"/>
+                  <linearGradient id="refPinkHair" x1="220" y1="60" x2="220" y2="440" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#fce4ec"/>
+                    <stop offset="45%" stop-color="#f7ccd6"/>
+                    <stop offset="100%" stop-color="#eab3c0"/>
                   </linearGradient>
-                  <linearGradient id="kaiaSkin" x1="190" y1="115" x2="190" y2="230" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stop-color="#fff8f2"/>
-                    <stop offset="75%" stop-color="#ffece0"/>
-                    <stop offset="100%" stop-color="#f7cfc0"/>
-                  </linearGradient>
-                  <linearGradient id="kaiaOveralls" x1="130" y1="225" x2="255" y2="340" gradientUnits="userSpaceOnUse">
-                    <stop offset="0%" stop-color="#6ee7b7"/>
-                    <stop offset="55%" stop-color="#34d399"/>
-                    <stop offset="100%" stop-color="#0d9488"/>
+                  <linearGradient id="refBerryRed" x1="160" y1="220" x2="260" y2="340" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#c4414d"/>
+                    <stop offset="65%" stop-color="#a8323d"/>
+                    <stop offset="100%" stop-color="#87242e"/>
                   </linearGradient>
                 </defs>
 
-                <!-- Aura cálida solar -->
-                <circle cx="195" cy="182" r="136" fill="url(#kaiaAura)"/>
+                <!-- Fondo circular suave tono papel crema de la ilustración -->
+                <circle cx="228" cy="260" r="218" fill="url(#refPaperGlow)"/>
 
-                <!-- Patito flotador kawaii acompañando a Fhya -->
+                <!-- LUNARES DECORATIVOS DE FONDO -->
+                <circle cx="94" cy="128" r="10" fill="#edd1d8" opacity="0.75"/>
+                <circle cx="384" cy="264" r="9.5" fill="#c7d9a7" opacity="0.8"/>
+
+                <!-- CEREZAS A LA IZQUIERDA (UNA ROJA Y UNA ROSA DE LUNARES) -->
                 <g class="animate-float-reverse">
-                  <ellipse cx="62" cy="128" rx="30" ry="20" fill="#fde047" stroke="#ca8a04" stroke-width="2"/>
-                  <circle cx="48" cy="108" r="15" fill="#fef08a" stroke="#ca8a04" stroke-width="2"/>
-                  <!-- Pico naranja -->
-                  <ellipse cx="34" cy="111" rx="7" ry="4" fill="#fb923c" stroke="#c2410c" stroke-width="1.4"/>
-                  <!-- Ojito -->
-                  <circle cx="44" cy="105" r="2.2" fill="#1e293b"/>
-                  <circle cx="43.3" cy="104.2" r="0.8" fill="#ffffff"/>
-                  <!-- Rubor -->
-                  <ellipse cx="51" cy="111" rx="3" ry="1.6" fill="#fb7185" opacity="0.7"/>
-                  <!-- Alita -->
-                  <path d="M58 124 Q72 120 74 132 Q62 136 58 124 Z" fill="#facc15" stroke="#ca8a04" stroke-width="1.4"/>
+                  <path d="M74 224 Q86 196 104 184 Q96 204 98 232" stroke="#85a651" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+                  <path d="M104 184 Q118 178 124 188 Q112 192 104 184 Z" fill="#9ec066" stroke="#6a873d" stroke-width="1.4"/>
+                  <!-- Cereza roja -->
+                  <circle cx="72" cy="227" r="8.5" fill="#cf3e4b" stroke="#7c3e3a" stroke-width="1.5"/>
+                  <circle cx="69.5" cy="224" r="2" fill="#ffffff"/>
+                  <!-- Cereza rosa con puntitos -->
+                  <circle cx="98" cy="234" r="8.5" fill="#ebb2bc" stroke="#8c5a56" stroke-width="1.4"/>
+                  <circle cx="95" cy="231" r="1.4" fill="#ffffff"/>
+                  <circle cx="101" cy="236" r="1.4" fill="#ffffff"/>
                 </g>
 
-                <!-- Coletas esponjosas estilo Play Together -->
-                <circle cx="114" cy="166" r="34" fill="url(#kaiaHair)" stroke="#b45309" stroke-width="2"/>
-                <circle cx="272" cy="166" r="34" fill="url(#kaiaHair)" stroke="#b45309" stroke-width="2"/>
-                <!-- Lazos coral en las coletas -->
-                <path d="M134 142 L120 132 L124 148 L114 156 L132 152 Z" fill="#fb7185" stroke="#be123c" stroke-width="1.5"/>
-                <path d="M252 142 L266 132 L262 148 L272 156 L254 152 Z" fill="#fb7185" stroke="#be123c" stroke-width="1.5"/>
+                <!-- PASTELITO DE CREMA CON DOS CEREZAS (ARRIBA DERECHA) -->
+                <g class="animate-float-reverse" transform="translate(342, 86)">
+                  <path d="M8 34 L52 34 L58 58 L2 58 Z" fill="#d9756c" stroke="#7c3e3a" stroke-width="1.7" stroke-linejoin="round"/>
+                  <circle cx="16" cy="46" r="1.5" fill="#fdfbf7" opacity="0.7"/>
+                  <circle cx="30" cy="49" r="1.5" fill="#fdfbf7" opacity="0.7"/>
+                  <circle cx="44" cy="45" r="1.5" fill="#fdfbf7" opacity="0.7"/>
+                  <!-- Crema blanca -->
+                  <path d="M3 35 Q10 22 20 27 Q30 19 40 27 Q50 22 57 35 Q49 43 40 37 Q30 45 20 37 Q11 43 3 35 Z" fill="#ffffff" stroke="#7c3e3a" stroke-width="1.7" stroke-linejoin="round"/>
+                  <!-- Dos cerezas encima -->
+                  <circle cx="24" cy="18" r="5.5" fill="#cf3e4b" stroke="#7c3e3a" stroke-width="1.4"/>
+                  <circle cx="37" cy="18" r="5.5" fill="#cf3e4b" stroke="#7c3e3a" stroke-width="1.4"/>
+                  <path d="M24 13 Q30 4 37 13" stroke="#85a651" stroke-width="1.6" fill="none"/>
+                  <!-- Etiqueta rombo -->
+                  <g transform="translate(8, 52) rotate(45)">
+                    <rect x="-8" y="-8" width="16" height="16" fill="#ffffff" stroke="#7c3e3a" stroke-width="1.3"/>
+                    <circle cx="-1" cy="2" r="2.2" fill="#cf3e4b"/>
+                    <circle cx="3" cy="2" r="2.2" fill="#cf3e4b"/>
+                  </g>
+                </g>
 
-                <!-- Camiseta crema con mangas abullonadas -->
-                <path d="M116 330 C114 272, 138 234, 166 226 L220 226 C250 234, 272 272, 270 330 Z" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+                <!-- GELATINA DE FRESA CON CUCHARA Y ETIQUETA (MEDIO DERECHA) -->
+                <g class="animate-float" transform="translate(342, 168)">
+                  <!-- Cuchara -->
+                  <path d="M8 22 L28 46" stroke="#9e9591" stroke-width="3" stroke-linecap="round"/>
+                  <ellipse cx="6" cy="18" rx="6" ry="9" transform="rotate(-28 6 18)" fill="#e8e4e1" stroke="#8c7a75" stroke-width="1.5"/>
+                  <!-- Vasito gelatina -->
+                  <path d="M16 32 L54 32 L49 58 L21 58 Z" fill="#b83b46" stroke="#7c3e3a" stroke-width="1.7" stroke-linejoin="round"/>
+                  <path d="M18 32 L52 32 L50 40 L20 40 Z" fill="#ffffff" opacity="0.85"/>
+                  <circle cx="35" cy="25" r="5" fill="#cf3e4b" stroke="#7c3e3a" stroke-width="1.4"/>
+                  <path d="M35 20 L31 12 M35 20 L40 13" stroke="#85a651" stroke-width="1.6" stroke-linecap="round"/>
+                  <!-- Etiqueta cuadrada -->
+                  <rect x="34" y="42" width="18" height="18" fill="#ffffff" stroke="#7c3e3a" stroke-width="1.3"/>
+                  <circle cx="41" cy="53" r="2.2" fill="#cf3e4b"/>
+                  <circle cx="46" cy="53" r="2.2" fill="#cf3e4b"/>
+                </g>
 
-                <!-- Overol Cozy Verde Menta con bolsillo de osito -->
-                <path d="M144 236 L242 236 L252 330 L134 330 Z" fill="url(#kaiaOveralls)" stroke="#0f766e" stroke-width="2" stroke-linejoin="round"/>
-                <!-- Tirantes con botones amarillos -->
-                <rect x="152" y="224" width="14" height="28" rx="4" fill="#34d399" stroke="#0f766e" stroke-width="1.8"/>
-                <rect x="220" y="224" width="14" height="28" rx="4" fill="#34d399" stroke="#0f766e" stroke-width="1.8"/>
-                <circle cx="159" cy="244" r="3.5" fill="#fde047" stroke="#b45309" stroke-width="1.2"/>
-                <circle cx="227" cy="244" r="3.5" fill="#fde047" stroke="#b45309" stroke-width="1.2"/>
-                <!-- Bolsillo central con carita de osito -->
-                <rect x="173" y="264" width="40" height="34" rx="10" fill="#a7f3d0" stroke="#0f766e" stroke-width="1.8"/>
-                <circle cx="186" cy="278" r="2" fill="#134e4a"/>
-                <circle cx="200" cy="278" r="2" fill="#134e4a"/>
-                <ellipse cx="193" cy="283" rx="4" ry="3" fill="#ffffff"/>
-                <circle cx="193" cy="282" r="1.5" fill="#134e4a"/>
+                <!-- LATITA DE SODA DE CEREZAS CON PAJITA (ABAJO DERECHA) -->
+                <g class="animate-float-reverse" transform="translate(324, 294) rotate(-8)">
+                  <path d="M22 -16 L18 6" stroke="#8c5a56" stroke-width="2.6" stroke-linecap="round"/>
+                  <rect x="4" y="6" width="32" height="50" rx="6" fill="#c4414d" stroke="#7c3e3a" stroke-width="1.7"/>
+                  <ellipse cx="20" cy="6" rx="14" ry="3" fill="#e5e0dc" stroke="#7c3e3a" stroke-width="1.4"/>
+                  <rect x="6" y="18" width="28" height="26" rx="2" fill="#ffffff"/>
+                  <circle cx="15" cy="34" r="3.8" fill="#cf3e4b"/>
+                  <circle cx="25" cy="35" r="3.8" fill="#cf3e4b"/>
+                  <path d="M15 30 L20 22 L25 31" stroke="#85a651" stroke-width="1.6" fill="none"/>
+                </g>
 
-                <!-- Brazo saludando alegremente -->
-                <path d="M242 246 C264 234, 286 210, 292 192 C296 182, 308 186, 304 198 C296 224, 272 256, 246 268 Z" fill="url(#kaiaSkin)" stroke="#c78b80" stroke-width="1.8"/>
-                <!-- Manga crema -->
-                <path d="M238 236 C254 232, 268 242, 266 258 L242 266 Z" fill="#fffbeb" stroke="#d97706" stroke-width="1.8"/>
+                <!-- ALITA DE ÁNGEL BLANCA DETRÁS DEL BOLSITO -->
+                <path d="M138 258 C102 244, 72 256, 68 274 C78 282, 92 278, 98 286 C108 292, 126 286, 140 274 Z" fill="#ffffff" stroke="#8c5a56" stroke-width="1.8" stroke-linejoin="round"/>
 
-                <!-- Cuello -->
-                <rect x="183" y="198" width="20" height="28" rx="10" fill="url(#kaiaSkin)" stroke="#c78b80" stroke-width="1.6"/>
+                <!-- CINTAS LARGAS EN ESPIRAL DE LAS COLETAS (IZQUIERDA Y DERECHA) -->
+                <!-- Cinta izquierda -->
+                <path d="M154 182 C118 216, 78 284, 92 354 C102 396, 128 422, 112 452 C102 470, 76 464, 80 444 C84 426, 106 430, 120 416 C136 398, 114 358, 108 326 C102 280, 132 226, 166 202 Z" fill="url(#refPinkHair)" stroke="#8c5a56" stroke-width="1.8" stroke-linejoin="round"/>
+                <!-- Cinta derecha -->
+                <path d="M292 178 C342 204, 394 258, 394 328 C394 378, 366 410, 382 440 C392 458, 418 450, 412 430 C406 412, 384 418, 370 404 C354 388, 372 350, 372 314 C372 266, 330 218, 284 198 Z" fill="url(#refPinkHair)" stroke="#8c5a56" stroke-width="1.8" stroke-linejoin="round"/>
 
-                <!-- Cabeza redondeada súper cute -->
-                <path d="M138 148 C138 104, 248 104, 248 148 C248 186, 222 208, 193 208 C164 208, 138 186, 138 148 Z" fill="url(#kaiaSkin)" stroke="#c78b80" stroke-width="1.8"/>
+                <!-- PIERNAS, CALENTADORES CON BOTONES PASTEL Y ZAPATITOS VERDE OLIVA OSCURO -->
+                <!-- Pierna izquierda -->
+                <path d="M188 338 L180 412 L198 412 L206 338 Z" fill="#f7e5dc" stroke="#8c5a56" stroke-width="1.7"/>
+                <!-- Calcetín alto -->
+                <path d="M183 386 L201 386 L200 404 L182 404 Z" fill="#f2f4f0" stroke="#7c7370" stroke-width="1.5"/>
+                <!-- Calentador holgado izquierdo con botones rosa y verde -->
+                <path d="M175 398 L204 398 L210 456 L168 456 Z" fill="#f7f9f5" stroke="#7c7370" stroke-width="1.7" stroke-linejoin="round"/>
+                <circle cx="182" cy="424" r="4.5" fill="#f5c6d0"/>
+                <circle cx="198" cy="434" r="4.5" fill="#9ec066"/>
+                <!-- Zapato izquierdo -->
+                <ellipse cx="188" cy="462" rx="22" ry="12" fill="#4f594d" stroke="#363d35" stroke-width="1.9"/>
 
-                <!-- Rubor melocotón -->
-                <ellipse cx="158" cy="175" rx="12" ry="6" fill="#fb7185" opacity="0.5"/>
-                <ellipse cx="228" cy="175" rx="12" ry="6" fill="#fb7185" opacity="0.5"/>
+                <!-- Pierna derecha -->
+                <path d="M222 338 L232 406 L250 406 L240 338 Z" fill="#f7e5dc" stroke="#8c5a56" stroke-width="1.7"/>
+                <!-- Calcetín alto derecho -->
+                <path d="M229 380 L247 380 L248 398 L230 398 Z" fill="#f2f4f0" stroke="#7c7370" stroke-width="1.5"/>
+                <!-- Calentador holgado derecho -->
+                <path d="M226 392 L254 392 L262 448 L222 448 Z" fill="#f7f9f5" stroke="#7c7370" stroke-width="1.7" stroke-linejoin="round"/>
+                <circle cx="246" cy="418" r="4.5" fill="#f5c6d0"/>
+                <!-- Zapato derecho -->
+                <ellipse cx="242" cy="454" rx="22" ry="12" fill="#4f594d" stroke="#363d35" stroke-width="1.9"/>
 
-                <!-- Ojos grandes y brillantes estilo Play Together -->
+                <!-- FALDA VOLUMINOSA DE ENCAJE BLANCO + CAPA OSCURA + VESTIDO ROJO FRESA -->
+                <!-- Enagua blanca con volantes -->
+                <path d="M158 332 Q170 350 184 342 Q198 354 214 344 Q230 354 244 342 Q258 350 270 332 L258 306 L170 306 Z" fill="#ffffff" stroke="#7c7370" stroke-width="1.7" stroke-linejoin="round"/>
+                <!-- Capa gris carbón con lunares -->
+                <path d="M166 304 L262 304 L274 332 Q214 342 154 332 Z" fill="#524d4e" stroke="#383435" stroke-width="1.7"/>
+                <!-- Vestido rojo fresa con lunares blancos -->
+                <path d="M180 232 L248 232 L268 314 Q214 326 160 314 Z" fill="url(#refBerryRed)" stroke="#7c3e3a" stroke-width="1.8" stroke-linejoin="round"/>
+                <circle cx="196" cy="284" r="1.7" fill="#fdfbf7" opacity="0.8"/>
+                <circle cx="218" cy="292" r="1.7" fill="#fdfbf7" opacity="0.8"/>
+                <circle cx="240" cy="282" r="1.7" fill="#fdfbf7" opacity="0.8"/>
+
+                <!-- Lazo verde oliva con cerezas colgando en el bajo izquierdo de la falda -->
+                <g transform="translate(172, 324)">
+                  <path d="M0 0 L-12 -7 L-9 4 L-15 9 L0 4 L15 9 L9 4 L12 -7 Z" fill="#89ab52" stroke="#577030" stroke-width="1.5"/>
+                  <line x1="-3" y1="4" x2="-7" y2="20" stroke="#85a651" stroke-width="1.7"/>
+                  <line x1="3" y1="4" x2="7" y2="20" stroke="#85a651" stroke-width="1.7"/>
+                  <circle cx="-7" cy="22" r="4.5" fill="#cf3e4b" stroke="#7c3e3a" stroke-width="1.3"/>
+                  <circle cx="7" cy="22" r="4.5" fill="#cf3e4b" stroke="#7c3e3a" stroke-width="1.3"/>
+                </g>
+
+                <!-- BOLSITO REDONDO DE FRESA CON BOLSILLO DE GATITO NEGRO Y ENCAJE -->
+                <g transform="translate(150, 266)">
+                  <circle cx="0" cy="0" r="28" fill="#c4414d" stroke="#7c3e3a" stroke-width="1.8"/>
+                  <circle cx="0" cy="0" r="21" fill="#d9626d" stroke="#fdfbf7" stroke-width="1.8" stroke-dasharray="4 3"/>
+                  <!-- Bolsillo gatito negro con borde de encaje -->
+                  <path d="M-12 8 C-14 -4, -8 -10, -4 -4 L4 -4 C8 -10, 14 -4, 12 8 C12 18, -12 18, -12 8 Z" fill="#3b3637" stroke="#ffffff" stroke-width="2.5"/>
+                  <circle cx="-3" cy="8" r="1.5" fill="#ffffff"/>
+                  <circle cx="4" cy="8" r="1.5" fill="#ffffff"/>
+                  <!-- Lacito rosa y verde en el bolsito -->
+                  <circle cx="-11" cy="14" r="3" fill="#f7ccd6"/>
+                  <circle cx="11" cy="12" r="3" fill="#89ab52"/>
+                </g>
+                <!-- Correa cruzada negra -->
+                <path d="M138 242 Q178 225 214 244" stroke="#3b3637" stroke-width="5.5" stroke-linecap="round" fill="none"/>
+                <circle cx="174" cy="233" r="4.5" fill="#ffffff" stroke="#577030" stroke-width="1.5"/>
+                <circle cx="184" cy="234" r="4" fill="#f7ccd6" stroke="#7c3e3a" stroke-width="1.4"/>
+
+                <!-- LAZO VERDE MATCHA EN EL PECHO CON CINTAS LARGAS -->
+                <path d="M214 244 L194 234 L198 248 L190 258 L214 250 L238 258 L230 248 L234 234 Z" fill="#89ab52" stroke="#577030" stroke-width="1.6" stroke-linejoin="round"/>
+                <path d="M214 250 L204 274 M214 250 L224 274" stroke="#577030" stroke-width="3.2" stroke-linecap="round"/>
+
+                <!-- BRAZO IZQUIERDO SOSTENIENDO LA CESTITA DE PICNIC -->
+                <path d="M180 238 C166 256, 166 282, 184 294 L194 286 C180 274, 180 258, 190 242 Z" fill="#fff7f3" stroke="#8c5a56" stroke-width="1.7"/>
+                <!-- Puño fruncido blanco -->
+                <ellipse cx="188" cy="292" rx="10" ry="6.5" fill="#ffffff" stroke="#7c7370" stroke-width="1.6"/>
+                <!-- CESTITA DE PICNIC CON TAPA BLANCA, ENCAJE Y LAZO VERDE -->
+                <g transform="translate(194, 294)">
+                  <!-- Asa -->
+                  <path d="M8 16 L20 -6 L54 -6 L64 16" stroke="#3b3637" stroke-width="3.2" fill="none" stroke-linejoin="round"/>
+                  <!-- Hojitas verdes atrás -->
+                  <path d="M56 10 L68 -4 L66 14 Z" fill="#89ab52" stroke="#577030" stroke-width="1.4"/>
+                  <!-- Tapa blanca con encaje -->
+                  <polygon points="4,18 46,10 76,22 34,34" fill="#ffffff" stroke="#7c7370" stroke-width="1.7" stroke-linejoin="round"/>
+                  <!-- Base marrón de la cesta -->
+                  <polygon points="4,18 34,34 34,52 4,36" fill="#9c7361" stroke="#63463a" stroke-width="1.7" stroke-linejoin="round"/>
+                  <polygon points="34,34 76,22 76,40 34,52" fill="#825d4d" stroke="#63463a" stroke-width="1.7" stroke-linejoin="round"/>
+                  <!-- Lazo verde y cereza colgante -->
+                  <path d="M32 28 L20 22 L23 31 L17 37 L32 32 L45 37 L40 30 L44 22 Z" fill="#89ab52" stroke="#577030" stroke-width="1.4"/>
+                  <circle cx="58" cy="30" r="5" fill="#cf3e4b" stroke="#7c3e3a" stroke-width="1.3"/>
+                </g>
+
+                <!-- BRAZO DERECHO HACIENDO SIGNO DE PAZ (V) -->
+                <path d="M248 238 C266 246, 280 238, 290 224 L300 232 C288 250, 268 258, 246 250 Z" fill="#fff7f3" stroke="#8c5a56" stroke-width="1.7"/>
+                <!-- Manita estilizada haciendo la V -->
+                <path d="M290 224 L304 202 C306 198, 311 200, 309 205 L299 222 L320 212 C324 210, 326 215, 322 218 L300 232 Z" fill="#fff7f3" stroke="#8c5a56" stroke-width="1.7" stroke-linejoin="round"/>
+
+                <!-- CUELLO Y CHOKER NEGRO -->
+                <rect x="208" y="212" width="14" height="20" rx="6" fill="#fff7f3" stroke="#8c5a56" stroke-width="1.6"/>
+                <rect x="207" y="218" width="16" height="5.5" rx="2" fill="#3b3637"/>
+
+                <!-- CABEZA CHIBI CON PAÑUELO ROJO DE LUNARES Y VOLANTE DE ENCAJE -->
+                <path d="M138 164 C138 92, 302 92, 302 164 L288 202 L152 202 Z" fill="#b83b46" stroke="#6e3a38" stroke-width="2" stroke-linejoin="round"/>
+                <!-- Lunares blancos del pañuelo -->
+                <circle cx="182" cy="120" r="2.5" fill="#fdfbf7" opacity="0.85"/>
+                <circle cx="220" cy="108" r="2.5" fill="#fdfbf7" opacity="0.85"/>
+                <circle cx="258" cy="120" r="2.5" fill="#fdfbf7" opacity="0.85"/>
+                <circle cx="164" cy="142" r="2.2" fill="#fdfbf7" opacity="0.85"/>
+                <circle cx="276" cy="142" r="2.2" fill="#fdfbf7" opacity="0.85"/>
+
+                <!-- Volante blanco fruncido alrededor del rostro -->
+                <path d="M144 166 Q158 148 172 160 Q196 136 220 150 Q244 136 268 160 Q282 148 296 166" stroke="#ffffff" stroke-width="10" stroke-linecap="round" fill="none"/>
+                <path d="M144 166 Q158 148 172 160 Q196 136 220 150 Q244 136 268 160 Q282 148 296 166" stroke="#8c5a56" stroke-width="1.6" stroke-linecap="round" fill="none"/>
+
+                <!-- Coletas laterales esponjosas -->
+                <circle cx="148" cy="182" r="22" fill="url(#refPinkHair)" stroke="#8c5a56" stroke-width="1.8"/>
+                <circle cx="292" cy="182" r="22" fill="url(#refPinkHair)" stroke="#8c5a56" stroke-width="1.8"/>
+
+                <!-- Rostro Chibi suave -->
+                <path d="M164 166 C164 130, 276 130, 276 166 C276 200, 248 215, 220 215 C192 215, 164 200, 164 166 Z" fill="#fff7f3" stroke="#8c5a56" stroke-width="1.8"/>
+
+                <!-- Mejillas rosadas -->
+                <ellipse cx="182" cy="190" rx="11" ry="5.5" fill="#f7a8b8" opacity="0.6"/>
+                <ellipse cx="258" cy="190" rx="11" ry="5.5" fill="#f7a8b8" opacity="0.6"/>
+
+                <!-- OJOS: GUIÑO VERDE LIMA IZQUIERDO + OJO VERDE LIMA DERECHO -->
                 <g class="animate-blink">
-                  <ellipse cx="167" cy="159" rx="11.5" ry="13.5" fill="#134e4a"/>
-                  <ellipse cx="167" cy="162" rx="8.5" ry="8.5" fill="#2dd4bf"/>
-                  <circle cx="163.5" cy="154" r="3.8" fill="#ffffff"/>
-                  <circle cx="171.5" cy="164" r="1.8" fill="#ffffff"/>
-                  <path d="M154 152 Q167 142 180 152" stroke="#0f172a" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+                  <!-- Guiño izquierdo -->
+                  <path d="M180 178 Q192 171 204 180" stroke="#7d9c48" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+                  <path d="M179 177 L174 173" stroke="#8c5a56" stroke-width="2" stroke-linecap="round"/>
 
-                  <ellipse cx="219" cy="159" rx="11.5" ry="13.5" fill="#134e4a"/>
-                  <ellipse cx="219" cy="162" rx="8.5" ry="8.5" fill="#2dd4bf"/>
-                  <circle cx="215.5" cy="154" r="3.8" fill="#ffffff"/>
-                  <circle cx="223.5" cy="164" r="1.8" fill="#ffffff"/>
-                  <path d="M206 152 Q219 142 232 152" stroke="#0f172a" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+                  <!-- Ojo derecho verde lima -->
+                  <ellipse cx="244" cy="177" rx="10" ry="12.5" fill="#98ba5e" stroke="#637d38" stroke-width="1.5"/>
+                  <ellipse cx="244" cy="180" rx="6.5" ry="7.8" fill="#dceca8"/>
+                  <circle cx="240.5" cy="172" r="3.4" fill="#ffffff"/>
+                  <circle cx="247.5" cy="182" r="1.6" fill="#ffffff"/>
+                  <path d="M233 170 Q244 163 255 171" stroke="#8c5a56" stroke-width="2.6" stroke-linecap="round" fill="none"/>
                 </g>
 
-                <!-- Sonrisa abierta feliz -->
-                <path d="M185 180 Q193 190 201 180 Z" fill="#fb7185" stroke="#be123c" stroke-width="1.6" stroke-linejoin="round"/>
+                <!-- GAFITAS REDONDAS CON BORDE SUPERIOR ROJO CORAL E INFERIOR BLANCO -->
+                <g>
+                  <rect x="172" y="168" width="35" height="23" rx="10" fill="rgba(255,255,255,0.2)" stroke="#d95b66" stroke-width="2.4"/>
+                  <path d="M176 189 Q189.5 193 203 189" stroke="#ffffff" stroke-width="2.8" stroke-linecap="round" fill="none"/>
 
-                <!-- Flequillo esponjoso -->
-                <path d="M132 154 C132 94, 254 94, 254 154 C242 134, 228 144, 216 124 C206 144, 196 146, 188 124 C178 146, 162 144, 150 126 C140 142, 136 148, 132 154 Z" fill="url(#kaiaHair)" stroke="#b45309" stroke-width="2" stroke-linejoin="round"/>
+                  <rect x="227" y="168" width="35" height="23" rx="10" fill="rgba(255,255,255,0.2)" stroke="#d95b66" stroke-width="2.4"/>
+                  <path d="M231 189 Q244.5 193 258 189" stroke="#ffffff" stroke-width="2.8" stroke-linecap="round" fill="none"/>
 
-                <!-- Gafas de sol corazón en la cabeza -->
-                <g transform="translate(193, 102) rotate(-6)">
-                  <rect x="-34" y="-10" width="28" height="18" rx="9" fill="#fda4af" stroke="#be123c" stroke-width="2"/>
-                  <rect x="6" y="-10" width="28" height="18" rx="9" fill="#fda4af" stroke="#be123c" stroke-width="2"/>
-                  <path d="M-6 -2 L6 -2" stroke="#be123c" stroke-width="2.5"/>
-                  <path d="M-28 -5 L-18 -5" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
-                  <path d="M12 -5 L22 -5" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M207 178 Q217 174 227 178" stroke="#d95b66" stroke-width="2.3" fill="none"/>
                 </g>
 
-                <!-- Corazoncitos y destellos flotantes -->
-                <path d="M312 106 C312 106, 300 98, 300 91 C300 87, 304 85, 307 87 C309 88, 312 91, 312 91 C312 91, 315 88, 317 87 C320 85, 324 87, 324 91 C324 98, 312 106, 312 106 Z" fill="#fda4af" class="animate-heartbeat"/>
-                <path d="M98 192 L101 199 L108 202 L101 205 L98 212 L95 205 L88 202 L95 199 Z" fill="#fde047" class="animate-twinkle"/>
+                <!-- Boquita pequeña -->
+                <ellipse cx="217" cy="199" rx="4" ry="5.2" fill="#e87a8a" stroke="#8c5a56" stroke-width="1.4"/>
+
+                <!-- FLEQUILLO PARTIDO VAPOROSO + MECHONES LATERALES -->
+                <path d="M164 164 C156 190, 162 212, 172 222 C172 202, 174 186, 180 172 Z" fill="url(#refPinkHair)" stroke="#8c5a56" stroke-width="1.6"/>
+                <path d="M276 164 C284 190, 278 212, 268 222 C268 202, 266 186, 260 172 Z" fill="url(#refPinkHair)" stroke="#8c5a56" stroke-width="1.6"/>
+
+                <path d="M158 166 C160 116, 215 116, 220 148 C225 116, 280 116, 282 166 C266 148, 242 156, 220 138 C198 156, 174 148, 158 166 Z" fill="url(#refPinkHair)" stroke="#8c5a56" stroke-width="1.8" stroke-linejoin="round"/>
+
+                <!-- Mechones rebeldes en la coronilla -->
+                <path d="M218 102 C210 72, 240 62, 252 80 C238 78, 226 88, 223 104 Z" fill="url(#refPinkHair)" stroke="#8c5a56" stroke-width="1.7" stroke-linejoin="round"/>
+                <path d="M216 102 C202 80, 184 82, 180 94 C192 92, 206 96, 214 105 Z" fill="url(#refPinkHair)" stroke="#8c5a56" stroke-width="1.6" stroke-linejoin="round"/>
+
+                <!-- Lacito verde oliva en el pañuelo -->
+                <g transform="translate(180, 120) rotate(-18)">
+                  <path d="M0 0 L-14 -7 L-10 5 L-16 11 L0 5 L16 11 L10 5 L14 -7 Z" fill="#89ab52" stroke="#577030" stroke-width="1.5" stroke-linejoin="round"/>
+                  <circle cx="0" cy="1" r="3" fill="#a8c973" stroke="#577030" stroke-width="1.2"/>
+                </g>
               </svg>
             </div>
           </div>
@@ -557,40 +714,40 @@
               <div class="flex flex-wrap gap-1.5 mt-3">
                 <span class="text-[11px] font-bold bg-teal-100 text-teal-800 px-2.5 py-0.5 rounded-full">#PlayTogether</span>
                 <span class="text-[11px] font-bold bg-amber-100 text-amber-800 px-2.5 py-0.5 rounded-full">#KaiaIsland</span>
-                <span class="text-[11px] font-bold bg-rose-100 text-rose-700 px-2.5 py-0.5 rounded-full">#CozyHouse</span>
-              </div>
-            </div>
-
-            <!-- Mascota Chibi en pijama de Patito -->
+            <!-- Mascota Chibi fiel al dibujo enviado -->
             <div class="col-span-4 flex justify-end items-end">
-              <div class="w-24 sm:w-28 animate-chibi-bounce cursor-pointer" onclick="triggerMascotSparkle()" title="¡Haz clic para saludar a Pipi!">
-                <svg viewBox="0 0 140 150" fill="none" class="w-full h-auto drop-shadow-md">
-                  <ellipse cx="70" cy="141" rx="34" ry="5.5" fill="#99f6e4"/>
-                  <!-- Pijama de patito amarillo -->
-                  <path d="M36 135 C33 102, 44 86, 70 86 C96 86, 107 102, 104 135 Z" fill="#fef08a" stroke="#ca8a04" stroke-width="2.4"/>
-                  <ellipse cx="70" cy="115" rx="17" ry="15" fill="#ffffff"/>
-                  <circle cx="70" cy="109" r="2.5" fill="#fb923c"/>
-                  <circle cx="70" cy="120" r="2.5" fill="#fb923c"/>
+              <div class="w-24 sm:w-28 animate-chibi-bounce cursor-pointer" onclick="playKaiaSfx('duck'); triggerMascotSparkle()" title="¡Haz clic para saludar a Fhya!">
+                <svg viewBox="0 0 140 155" fill="none" class="w-full h-auto drop-shadow-md">
+                  <ellipse cx="70" cy="146" rx="34" ry="5.5" fill="#99f6e4"/>
+                  <!-- Vestido rojo fresa y falda blanca -->
+                  <path d="M40 140 C38 108, 48 92, 70 92 C92 92, 102 108, 100 140 Z" fill="#c4414d" stroke="#7c3e3a" stroke-width="1.9"/>
+                  <path d="M44 128 L96 128 L100 140 L40 140 Z" fill="#ffffff" stroke="#7c7370" stroke-width="1.6"/>
+                  <!-- Lazo verde oliva -->
+                  <path d="M70 98 L58 92 L61 100 L56 105 L70 101 L84 105 L79 100 L82 92 Z" fill="#89ab52" stroke="#577030" stroke-width="1.4"/>
                   <!-- Manitas -->
-                  <ellipse cx="38" cy="108" rx="9" ry="6.5" transform="rotate(-25 38 108)" fill="#fef08a" stroke="#ca8a04" stroke-width="2"/>
-                  <ellipse cx="102" cy="108" rx="9" ry="6.5" transform="rotate(25 102 108)" fill="#fef08a" stroke="#ca8a04" stroke-width="2"/>
-                  <!-- Capucha de Patito -->
-                  <circle cx="70" cy="60" r="36" fill="#fef08a" stroke="#ca8a04" stroke-width="2.4"/>
-                  <!-- Piquito de pato arriba -->
-                  <ellipse cx="70" cy="24" rx="11" ry="5.5" fill="#fb923c" stroke="#c2410c" stroke-width="1.8"/>
-                  <circle cx="58" cy="32" r="2.2" fill="#1e293b"/>
-                  <circle cx="82" cy="32" r="2.2" fill="#1e293b"/>
+                  <ellipse cx="40" cy="112" rx="8" ry="6" transform="rotate(-25 40 112)" fill="#fff7f3" stroke="#8c5a56" stroke-width="1.6"/>
+                  <ellipse cx="100" cy="112" rx="8" ry="6" transform="rotate(25 100 112)" fill="#fff7f3" stroke="#8c5a56" stroke-width="1.6"/>
+                  <!-- Pañuelo rojo fresa con lunares y encaje -->
+                  <path d="M30 66 C30 28, 110 28, 110 66 L102 88 L38 88 Z" fill="#b83b46" stroke="#6e3a38" stroke-width="2"/>
+                  <circle cx="56" cy="40" r="2" fill="#fdfbf7"/>
+                  <circle cx="84" cy="40" r="2" fill="#fdfbf7"/>
+                  <path d="M34 66 Q52 52 70 60 Q88 52 106 66" stroke="#ffffff" stroke-width="6" stroke-linecap="round" fill="none"/>
                   <!-- Carita Chibi -->
-                  <ellipse cx="70" cy="65" rx="26" ry="21" fill="#fff5ef" stroke="#d49a8e" stroke-width="1.5"/>
-                  <ellipse cx="52" cy="70" rx="5" ry="2.6" fill="#fb7185" opacity="0.65"/>
-                  <ellipse cx="88" cy="70" rx="5" ry="2.6" fill="#fb7185" opacity="0.65"/>
+                  <ellipse cx="70" cy="68" rx="26" ry="21" fill="#fff7f3" stroke="#8c5a56" stroke-width="1.7"/>
+                  <ellipse cx="52" cy="74" rx="5.5" ry="2.8" fill="#f7a8b8" opacity="0.65"/>
+                  <ellipse cx="88" cy="74" rx="5.5" ry="2.8" fill="#f7a8b8" opacity="0.65"/>
                   <g class="animate-blink">
-                    <ellipse cx="58" cy="63" rx="4.4" ry="5.4" fill="#134e4a"/>
-                    <ellipse cx="82" cy="63" rx="4.4" ry="5.4" fill="#134e4a"/>
-                    <circle cx="56.5" cy="61" r="1.7" fill="#ffffff"/>
-                    <circle cx="80.5" cy="61" r="1.7" fill="#ffffff"/>
+                    <path d="M53 66 Q59 61 65 67" stroke="#7d9c48" stroke-width="2.4" stroke-linecap="round" fill="none"/>
+                    <ellipse cx="82" cy="66" rx="4.2" ry="5.2" fill="#98ba5e"/>
+                    <circle cx="81" cy="64" r="1.6" fill="#ffffff"/>
                   </g>
-                  <path d="M66 72 Q68 74.5 70 72 Q72 74.5 74 72" stroke="#e11d48" stroke-width="1.9" stroke-linecap="round" fill="none"/>
+                  <!-- Gafitas -->
+                  <rect x="50" y="61" width="15" height="11" rx="4.5" fill="none" stroke="#d95b66" stroke-width="1.7"/>
+                  <rect x="75" y="61" width="15" height="11" rx="4.5" fill="none" stroke="#d95b66" stroke-width="1.7"/>
+                  <line x1="65" y1="66" x2="75" y2="66" stroke="#d95b66" stroke-width="1.7"/>
+                  <!-- Flequillo rosa -->
+                  <path d="M45 62 C47 42, 69 42, 70 55 C71 42, 93 42, 95 62 C85 53, 76 56, 70 49 C64 56, 55 53, 45 62 Z" fill="#f7ccd6" stroke="#8c5a56" stroke-width="1.6"/>
+                  <ellipse cx="70" cy="76" rx="2.4" ry="3" fill="#e87a8a"/>
                 </svg>
               </div>
             </div>
@@ -600,7 +757,7 @@
         <!-- Fila de 2 Widgets Cuadrados -->
         <div class="grid grid-cols-2 gap-4 sm:gap-5">
           <!-- Widget Izquierdo Turquesa: Cumpleaños / Fecha Especial -->
-          <div onclick="celebrateBirthday()" class="teal-bento bento-card cursor-pointer rounded-[26px] p-5 flex flex-col justify-between text-white relative overflow-hidden min-h-[158px] group">
+          <div onclick="playKaiaSfx('magic'); celebrateBirthday()" class="teal-bento bento-card cursor-pointer rounded-[26px] p-5 flex flex-col justify-between text-white relative overflow-hidden min-h-[158px] group">
             <div class="flex items-start justify-between">
               <div>
                 <span class="text-4xl sm:text-[42px] font-black leading-none tracking-tight block">14</span>
@@ -650,23 +807,23 @@
         <div class="bg-white/95 rounded-full px-3.5 py-2.5 shadow-lg border-2 border-teal-400 flex flex-wrap items-center justify-between gap-2">
           <!-- 5 Mini Avatares de Lugares / Mascotas de Play Together -->
           <div class="flex items-center -space-x-1 sm:space-x-1.5">
-            <button onclick="showToast('🎡 La Plaza • Punto de encuentro de FHYA')" class="relative group focus:outline-none" title="La Plaza">
+            <button onclick="playKaiaSfx('tap'); showToast('🎡 La Plaza • Punto de encuentro de FHYA')" class="relative group focus:outline-none" title="La Plaza">
               <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-amber-100 border-2 border-teal-400 flex items-center justify-center text-sm shadow-sm transition-transform group-hover:scale-110">🎡</div>
               <span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-lime-400 border border-white rounded-full"></span>
             </button>
-            <button onclick="showToast('🏡 Home Party • Casa Pastel Abierta')" class="relative group focus:outline-none" title="Home Party">
+            <button onclick="playKaiaSfx('tap'); showToast('🏡 Home Party • Casa Pastel Abierta')" class="relative group focus:outline-none" title="Home Party">
               <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-rose-100 border-2 border-teal-400 flex items-center justify-center text-sm shadow-sm transition-transform group-hover:scale-110">🏡</div>
               <span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-lime-400 border border-white rounded-full"></span>
             </button>
-            <button onclick="showToast('🐤 Mascota Pipi • Nivel Máximo')" class="relative group focus:outline-none" title="Mascota Pipi">
+            <button onclick="playKaiaSfx('duck'); showToast('🐤 Mascota Pipi • Nivel Máximo')" class="relative group focus:outline-none" title="Mascota Pipi">
               <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-yellow-100 border-2 border-teal-400 flex items-center justify-center text-sm shadow-sm transition-transform group-hover:scale-110">🐤</div>
               <span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-lime-400 border border-white rounded-full"></span>
             </button>
-            <button onclick="showToast('🎣 Muelle del Faro • Pesca de Peces Raros')" class="relative group focus:outline-none" title="Muelle Pesca">
+            <button onclick="playKaiaSfx('tap'); showToast('🎣 Muelle del Faro • Pesca de Peces Raros')" class="relative group focus:outline-none" title="Muelle Pesca">
               <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-cyan-100 border-2 border-teal-400 flex items-center justify-center text-sm shadow-sm transition-transform group-hover:scale-110">🎣</div>
               <span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-lime-400 border border-white rounded-full"></span>
             </button>
-            <button onclick="showToast('🍦 Heladería Kaia • Outfit Showcase')" class="relative group focus:outline-none" title="Heladería Kaia">
+            <button onclick="playKaiaSfx('tap'); showToast('🍦 Heladería Kaia • Outfit Showcase')" class="relative group focus:outline-none" title="Heladería Kaia">
               <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-pink-100 border-2 border-teal-400 flex items-center justify-center text-sm shadow-sm transition-transform group-hover:scale-110">🍦</div>
               <span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-lime-400 border border-white rounded-full"></span>
             </button>
@@ -674,16 +831,16 @@
 
           <!-- 4 Botones Circulares de Acción -->
           <div class="flex items-center gap-1.5 sm:gap-2">
-            <button onclick="openSocialModal('dm')" title="Enviar saludo a FHYA" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#2ba5b5] hover:bg-[#1d8a99] text-white flex items-center justify-center text-xs sm:text-sm shadow-sm transition-transform hover:scale-105">
+            <button onclick="playKaiaSfx('soft'); openSocialModal('dm')" title="Enviar saludo a FHYA" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#2ba5b5] hover:bg-[#1d8a99] text-white flex items-center justify-center text-xs sm:text-sm shadow-sm transition-transform hover:scale-105">
               <i class="fa-solid fa-envelope"></i>
             </button>
-            <a href="https://www.instagram.com/fhya.cozy?jplx=MTNidHg0MjlncTJwaw==" target="_blank" rel="noopener noreferrer" title="Instagram @fhya.cozy" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#2ba5b5] hover:bg-[#1d8a99] text-white flex items-center justify-center text-xs sm:text-sm shadow-sm transition-transform hover:scale-105">
+            <a href="https://www.instagram.com/fhya.cozy?jplx=MTNidHg0MjlncTJwaw==" target="_blank" rel="noopener noreferrer" onclick="playKaiaSfx('soft')" title="Instagram @fhya.cozy" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#2ba5b5] hover:bg-[#1d8a99] text-white flex items-center justify-center text-xs sm:text-sm shadow-sm transition-transform hover:scale-105">
               <i class="fa-brands fa-instagram"></i>
             </a>
-            <button onclick="copyGameID()" title="Copiar ID de Play Together" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#2ba5b5] hover:bg-[#1d8a99] text-white flex items-center justify-center text-xs sm:text-sm shadow-sm transition-transform hover:scale-105">
+            <button onclick="playKaiaSfx('magic'); copyGameID()" title="Copiar ID de Play Together" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#2ba5b5] hover:bg-[#1d8a99] text-white flex items-center justify-center text-xs sm:text-sm shadow-sm transition-transform hover:scale-105">
               <i class="fa-solid fa-location-dot"></i>
             </button>
-            <button onclick="openGalleryModal()" title="Ver Posts y Decoraciones" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#2ba5b5] hover:bg-[#1d8a99] text-white flex items-center justify-center text-xs sm:text-sm shadow-sm transition-transform hover:scale-105">
+            <button onclick="playKaiaSfx('soft'); openGalleryModal()" title="Ver Posts y Decoraciones" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#2ba5b5] hover:bg-[#1d8a99] text-white flex items-center justify-center text-xs sm:text-sm shadow-sm transition-transform hover:scale-105">
               <i class="fa-solid fa-video"></i>
             </button>
           </div>
@@ -695,7 +852,7 @@
       <div id="versions-grid" class="md:col-span-5 grid grid-cols-2 gap-4 sm:gap-5">
 
         <!-- Tarjeta Alta 1: House Ver. (Casita Pastel Cozy de Play Together) -->
-        <div onclick="openVersionModal('house')" class="bento-card cursor-pointer rounded-[28px] bg-gradient-to-b from-[#bae6fd] via-[#fef3c7] to-[#fde68a] border-[3px] border-white relative overflow-hidden min-h-[245px] sm:min-h-[265px] flex flex-col justify-between group shadow-lg">
+        <div onclick="playKaiaSfx('magic'); openVersionModal('house')" class="bento-card cursor-pointer rounded-[28px] bg-gradient-to-b from-[#bae6fd] via-[#fef3c7] to-[#fde68a] border-[3px] border-white relative overflow-hidden min-h-[245px] sm:min-h-[265px] flex flex-col justify-between group shadow-lg">
           <svg viewBox="0 0 200 270" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
             <!-- Nubes pastel -->
             <g class="animate-float" opacity="0.85">
@@ -751,7 +908,7 @@
         </div>
 
         <!-- Tarjeta Alta 2: Kaia Ver. (Muelle de Pesca & Huevo de Mascota) -->
-        <div onclick="openVersionModal('kaia')" class="bento-card cursor-pointer rounded-[28px] bg-gradient-to-b from-[#38bdf8] via-[#2dd4bf] to-[#0d9488] border-[3px] border-white relative overflow-hidden min-h-[245px] sm:min-h-[265px] flex flex-col justify-between group shadow-lg">
+        <div onclick="playKaiaSfx('magic'); openVersionModal('kaia')" class="bento-card cursor-pointer rounded-[28px] bg-gradient-to-b from-[#38bdf8] via-[#2dd4bf] to-[#0d9488] border-[3px] border-white relative overflow-hidden min-h-[245px] sm:min-h-[265px] flex flex-col justify-between group shadow-lg">
           <svg viewBox="0 0 200 270" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
             <!-- Sol cálido -->
             <circle cx="152" cy="48" r="22" fill="#fef08a" opacity="0.85" class="animate-twinkle"/>
@@ -802,7 +959,7 @@
         </div>
 
         <!-- Tarjeta Cuadrada 3: Smol Ver. (Chibi con Patito y Corazón) -->
-        <div onclick="openVersionModal('smol')" class="bento-card cursor-pointer rounded-[26px] bg-gradient-to-br from-[#fef3c7] via-[#fffbeb] to-[#ccfbf1] border-[3px] border-white relative overflow-hidden aspect-square flex flex-col justify-between group shadow-md">
+        <div onclick="playKaiaSfx('duck'); openVersionModal('smol')" class="bento-card cursor-pointer rounded-[26px] bg-gradient-to-br from-[#fef3c7] via-[#fffbeb] to-[#ccfbf1] border-[3px] border-white relative overflow-hidden aspect-square flex flex-col justify-between group shadow-md">
           <svg viewBox="0 0 180 180" class="w-full h-full p-2 transition-transform duration-300 group-hover:scale-105">
             <!-- Estrellitas y flores -->
             <circle cx="34" cy="60" r="5" fill="#fda4af"/>
@@ -843,7 +1000,7 @@
         </div>
 
         <!-- Tarjeta Cuadrada 4: VIEW MORE > -->
-        <button onclick="openGalleryModal()" class="teal-bento bento-card cursor-pointer rounded-[26px] p-5 aspect-square flex flex-col justify-between text-left relative overflow-hidden group focus:outline-none">
+        <button onclick="playKaiaSfx('soft'); openGalleryModal()" class="teal-bento bento-card cursor-pointer rounded-[26px] p-5 aspect-square flex flex-col justify-between text-left relative overflow-hidden group focus:outline-none">
           <div class="absolute -right-6 -top-6 w-24 h-24 bg-amber-200/25 rounded-full blur-lg group-hover:scale-125 transition-transform"></div>
 
           <div class="mt-1">
@@ -925,6 +1082,48 @@
       });
       render();
     })();
+
+    // 1.5 SONIDITOS INTERACTIVOS COZY (TONE.JS)
+    let sfxEnabled = true;
+    let sfxSynth = null;
+
+    function toggleSfx() {
+      sfxEnabled = !sfxEnabled;
+      const icon = document.getElementById('sfx-icon');
+      icon.className = sfxEnabled ? 'fa-solid fa-volume-high text-xs' : 'fa-solid fa-volume-xmark text-xs opacity-60';
+      showToast(sfxEnabled ? '🔔 Soniditos cozy activados' : '🔇 Soniditos silenciados');
+    }
+
+    function playKaiaSfx(type = 'tap') {
+      if (!sfxEnabled || typeof Tone === 'undefined') return;
+      try {
+        if (Tone.context.state !== 'running') {
+          Tone.start();
+        }
+        if (!sfxSynth) {
+          sfxSynth = new Tone.PolySynth(Tone.Synth, {
+            oscillator: { type: 'sine' },
+            envelope: { attack: 0.01, decay: 0.16, sustain: 0.04, release: 0.3 }
+          }).toDestination();
+          sfxSynth.volume.value = -13;
+        }
+        const now = Tone.now();
+        if (type === 'tap') {
+          sfxSynth.triggerAttackRelease('A5', '32n', now);
+        } else if (type === 'soft') {
+          sfxSynth.triggerAttackRelease(['E5', 'G5'], '16n', now);
+        } else if (type === 'duck') {
+          sfxSynth.triggerAttackRelease('F5', '32n', now);
+          sfxSynth.triggerAttackRelease('A5', '32n', now + 0.07);
+        } else if (type === 'magic') {
+          sfxSynth.triggerAttackRelease('C6', '32n', now);
+          sfxSynth.triggerAttackRelease('E6', '32n', now + 0.06);
+          sfxSynth.triggerAttackRelease('G6', '16n', now + 0.12);
+        }
+      } catch (e) {
+        // Ignorar si el navegador aún bloquea audio
+      }
+    }
 
     // 2. CARRUSEL DEL BANNER SUPERIOR
     const heroSlides = [
@@ -1048,7 +1247,7 @@
       showToast('🎂 ¡14 de Noviembre! Fiesta de cumpleaños en Isla Kaia 🎉');
     }
 
-    // 6. REPRODUCTOR DE MÚSICA COZY (3 CANCIONES COZY A ELEGIR + MP3 PROPIO)
+    // 6. REPRODUCTOR DE MÚSICA COZY (2 CANCIONES COZY A ELEGIR + MP3 PROPIO)
     let isPlayingMusic = false;
     let musicMode = 'synth';
     let currentPresetIndex = 0;
@@ -1070,12 +1269,6 @@
         tempo: 72,
         notes: ['A4', 'C5', 'E5', 'G5', 'F5', 'E5', 'C5', 'A4', 'D5', 'F5', 'A5', 'G5', 'E5', 'C5', 'B4', 'G4'],
         chords: [['F3', 'A3', 'C4', 'E4'], ['E3', 'G3', 'B3', 'D4'], ['D3', 'F3', 'A3', 'C4'], ['G3', 'B3', 'D4', 'F4']]
-      },
-      {
-        name: '3. Sunset Pier Fishing • Starlight Breeze',
-        tempo: 68,
-        notes: ['B4', 'D5', 'F#5', 'A5', 'G5', 'F#5', 'D5', 'B4', 'E5', 'G5', 'B5', 'A5', 'F#5', 'D5', 'E5', 'D5'],
-        chords: [['G3', 'B3', 'D4', 'F#4'], ['E3', 'G3', 'B3', 'D4'], ['C3', 'E3', 'G3', 'B3'], ['D3', 'F#3', 'A3', 'C4']]
       }
     ];
 
