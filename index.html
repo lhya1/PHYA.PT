@@ -1,0 +1,1368 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FHYA (@fhya.cozy) • Play Together Cozy Creator</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts: Quicksand, Nunito y Great Vibes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Nunito:wght@500;600;700;800;900&family=Quicksand:wght@500;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <!-- Tone.js para las 3 canciones cozy de Isla Kaia -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tone/14.8.49/Tone.js"></script>
+
+  <style>
+    :root {
+      --kaia-teal: #1d8a99;
+      --kaia-mint: #38b2ac;
+      --kaia-sky: #63c5da;
+      --kaia-cream: #fffaf0;
+      --kaia-coral: #ff8c94;
+      --kaia-navy: #145369;
+    }
+
+    * {
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      font-family: 'Nunito', 'Quicksand', sans-serif;
+      margin: 0;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #2796a8 0%, #4ec2b8 38%, #8ce0d2 74%, #fef6e4 100%);
+      color: #ffffff;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Franja lateral izquierda translúcida fiel al diseño original */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 18%;
+      height: 100%;
+      background: linear-gradient(180deg, rgba(16, 102, 117, 0.38) 0%, rgba(33, 138, 148, 0.2) 100%);
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    .font-calligraphy {
+      font-family: 'Great Vibes', cursive;
+    }
+
+    /* =========================================================
+       ANIMACIONES COZY DE ISLA KAIA (PLAY TOGETHER)
+       ========================================================= */
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(-9px) rotate(1.4deg); }
+    }
+
+    @keyframes floatReverse {
+      0%, 100% { transform: translateY(0px) rotate(0deg); }
+      50% { transform: translateY(7px) rotate(-1.8deg); }
+    }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.35; transform: scale(0.88); }
+      50% { opacity: 1; transform: scale(1.18); }
+    }
+
+    @keyframes gentleBounce {
+      0%, 100% { transform: translateY(0) scaleY(1); }
+      45% { transform: translateY(-8px) scaleY(1.04); }
+      55% { transform: translateY(-8px) scaleY(1.04); }
+      95% { transform: translateY(0) scaleY(0.95); }
+    }
+
+    @keyframes blinkEyes {
+      0%, 92%, 100% { transform: scaleY(1); }
+      96% { transform: scaleY(0.08); }
+    }
+
+    @keyframes ferrisWheelSpin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes bobbingWater {
+      0%, 100% { transform: translateY(0px) rotate(-2deg); }
+      50% { transform: translateY(-5px) rotate(3deg); }
+    }
+
+    @keyframes heartBeat {
+      0%, 100% { transform: scale(1); }
+      25% { transform: scale(1.1); }
+      45% { transform: scale(0.96); }
+      65% { transform: scale(1.07); }
+    }
+
+    @keyframes vinylSpin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    @keyframes eqBar {
+      0%, 100% { transform: scaleY(0.35); }
+      50% { transform: scaleY(1); }
+    }
+
+    .animate-float {
+      animation: floatSlow 4.4s ease-in-out infinite;
+    }
+
+    .animate-float-reverse {
+      animation: floatReverse 5.1s ease-in-out infinite;
+    }
+
+    .animate-twinkle {
+      animation: twinkle 2.8s ease-in-out infinite;
+    }
+
+    .animate-twinkle-delay {
+      animation: twinkle 3.5s ease-in-out 1.3s infinite;
+    }
+
+    .animate-chibi-bounce {
+      animation: gentleBounce 2.7s ease-in-out infinite;
+      transform-origin: bottom center;
+    }
+
+    .animate-blink {
+      animation: blinkEyes 4.4s infinite;
+      transform-origin: center;
+    }
+
+    .animate-ferris {
+      animation: ferrisWheelSpin 38s linear infinite;
+      transform-origin: 320px 280px;
+    }
+
+    .animate-bobber {
+      animation: bobbingWater 2.3s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    .animate-heartbeat {
+      animation: heartBeat 2.2s ease-in-out infinite;
+      transform-origin: center;
+    }
+
+    .animate-vinyl {
+      animation: vinylSpin 7s linear infinite;
+    }
+
+    .vinyl-paused {
+      animation-play-state: paused;
+    }
+
+    .eq-bar {
+      transform-origin: bottom;
+      animation: eqBar 0.9s ease-in-out infinite;
+    }
+
+    /* Tarjetas estilo Bento */
+    .bento-card {
+      transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s ease;
+    }
+
+    .bento-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 38px -12px rgba(15, 92, 107, 0.38);
+    }
+
+    .hero-card {
+      background: linear-gradient(135deg, #2ba5b5 0%, #44c4bd 52%, #76dbd0 100%);
+      box-shadow: 0 18px 42px rgba(16, 102, 117, 0.3), inset 0 1px 1px rgba(255, 255, 255, 0.5);
+      border: 2px solid rgba(255, 255, 255, 0.42);
+    }
+
+    .white-bento {
+      background: rgba(255, 253, 248, 0.97);
+      border: 3.5px solid #4ec2b8;
+      color: var(--kaia-navy);
+      box-shadow: 0 14px 30px rgba(16, 102, 117, 0.18);
+    }
+
+    .teal-bento {
+      background: linear-gradient(145deg, #32b3b8 0%, #2496a3 100%);
+      border: 3px solid rgba(255, 255, 255, 0.35);
+      box-shadow: 0 14px 30px rgba(16, 102, 117, 0.24);
+    }
+
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #2496a3;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #9ae6dc;
+      border-radius: 999px;
+    }
+  </style>
+</head>
+<body class="antialiased selection:bg-teal-200 selection:text-teal-950">
+
+  <!-- CANVAS DE BURBUJAS Y DESTELLOS DE ISLA KAIA -->
+  <canvas id="kaia-canvas" class="fixed inset-0 w-full h-full pointer-events-none z-0"></canvas>
+
+  <!-- FONDO DECORATIVO COZY PLAY TOGETHER (NORIA DE LA PLAZA Y NUBES) -->
+  <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+    <div class="font-calligraphy text-teal-950/20 text-6xl sm:text-7xl md:text-8xl select-none absolute top-3 left-4 sm:left-8 leading-none">
+      Play Together
+      <span class="block text-5xl sm:text-6xl ml-16 -mt-3">Kaia Island</span>
+    </div>
+
+    <!-- Noria Gigante de La Plaza girando suavemente de fondo -->
+    <svg class="absolute -right-24 -top-16 w-[520px] h-[520px] sm:w-[660px] sm:h-[660px] opacity-20" viewBox="0 0 600 600" fill="none">
+      <g class="animate-ferris">
+        <circle cx="320" cy="280" r="195" stroke="#ffffff" stroke-width="10"/>
+        <circle cx="320" cy="280" r="145" stroke="#fef08a" stroke-width="5" stroke-dasharray="16 12"/>
+        <line x1="320" y1="85" x2="320" y2="475" stroke="#ffffff" stroke-width="4"/>
+        <line x1="125" y1="280" x2="515" y2="280" stroke="#ffffff" stroke-width="4"/>
+        <line x1="182" y1="142" x2="458" y2="418" stroke="#ffffff" stroke-width="4"/>
+        <line x1="458" y1="142" x2="182" y2="418" stroke="#ffffff" stroke-width="4"/>
+        <!-- Cabinas -->
+        <rect x="306" y="70" width="28" height="24" rx="8" fill="#fda4af"/>
+        <rect x="306" y="466" width="28" height="24" rx="8" fill="#fde047"/>
+        <rect x="111" y="268" width="28" height="24" rx="8" fill="#93c5fd"/>
+        <rect x="501" y="268" width="28" height="24" rx="8" fill="#bef264"/>
+        <rect x="168" y="130" width="28" height="24" rx="8" fill="#fde047"/>
+        <rect x="444" y="406" width="28" height="24" rx="8" fill="#fda4af"/>
+      </g>
+      <!-- Soporte de la noria -->
+      <path d="M320 280 L230 560 M320 280 L410 560" stroke="#ffffff" stroke-width="12" stroke-linecap="round"/>
+      <circle cx="320" cy="280" r="24" fill="#fef08a"/>
+    </svg>
+
+    <!-- Destellos y corazoncitos flotantes -->
+    <svg class="absolute top-24 right-[26%] w-11 h-11 text-amber-200/80 animate-twinkle" viewBox="0 0 40 40" fill="currentColor">
+      <path d="M20 0 C21 13, 27 19, 40 20 C27 21, 21 27, 20 40 C19 27, 13 21, 0 20 C13 19, 19 13, 20 0 Z" />
+    </svg>
+    <svg class="absolute bottom-28 left-[8%] w-9 h-9 text-rose-200/75 animate-twinkle-delay" viewBox="0 0 40 40" fill="currentColor">
+      <path d="M20 35 C20 35, 4 24, 4 14 C4 8, 9 5, 14 8 C17 10, 20 13, 20 13 C20 13, 23 10, 26 8 C31 5, 36 8, 36 14 C36 24, 20 35, 20 35 Z" />
+    </svg>
+  </div>
+
+  <!-- CONTENEDOR PRINCIPAL CENTRADO ESTILO CARRD -->
+  <main class="relative z-10 max-w-[840px] mx-auto px-4 sm:px-6 pt-6 pb-14">
+
+    <!-- 1. BARRA DE NAVEGACIÓN SUPERIOR -->
+    <header class="flex flex-wrap items-center justify-between gap-3 mb-5 sm:mb-6">
+      <!-- Perfil de FHYA a la izquierda -->
+      <div class="flex items-center gap-3 group cursor-pointer" onclick="openProfileModal()">
+        <div class="relative">
+          <!-- Avatar circular SVG ilustrado estilo Play Together Cozy -->
+          <div class="w-12 h-12 sm:w-[52px] sm:h-[52px] rounded-full bg-gradient-to-tr from-amber-200 via-rose-100 to-teal-100 p-0.5 shadow-md ring-2 ring-white/90 overflow-hidden transition-transform duration-300 group-hover:scale-105">
+            <svg viewBox="0 0 100 100" class="w-full h-full">
+              <circle cx="50" cy="50" r="50" fill="#fef3c7"/>
+              <!-- Coletas esponjosas rubio miel -->
+              <circle cx="22" cy="56" r="14" fill="#f59e0b"/>
+              <circle cx="78" cy="56" r="14" fill="#f59e0b"/>
+              <path d="M24 54 C20 26, 80 26, 76 54 C78 76, 68 86, 50 86 C32 86, 22 76, 24 54 Z" fill="#fbbf24"/>
+              <!-- Rostro -->
+              <circle cx="50" cy="55" r="21" fill="#fff5ee"/>
+              <!-- Mejillas rosadas -->
+              <ellipse cx="38" cy="61" rx="4" ry="2.2" fill="#fb7185" opacity="0.65"/>
+              <ellipse cx="62" cy="61" rx="4" ry="2.2" fill="#fb7185" opacity="0.65"/>
+              <!-- Ojos grandes expresivos -->
+              <ellipse cx="42" cy="54" rx="3.5" ry="4.6" fill="#134e4a"/>
+              <ellipse cx="58" cy="54" rx="3.5" ry="4.6" fill="#134e4a"/>
+              <circle cx="41" cy="52.5" r="1.4" fill="#ffffff"/>
+              <circle cx="57" cy="52.5" r="1.4" fill="#ffffff"/>
+              <!-- Sonrisa -->
+              <path d="M47 62 Q50 65.5 53 62" stroke="#e11d48" stroke-width="2" stroke-linecap="round" fill="none"/>
+              <!-- Flequillo -->
+              <path d="M28 50 C30 28, 70 28, 72 50 C63 41, 56 46, 50 37 C44 46, 37 41, 28 50 Z" fill="#fde68a"/>
+              <!-- Gorrito de Patito Cozy -->
+              <path d="M32 34 C34 18, 66 18, 68 34 Z" fill="#facc15" stroke="#ca8a04" stroke-width="1.5"/>
+              <ellipse cx="50" cy="24" rx="7" ry="3.5" fill="#fb923c"/>
+            </svg>
+          </div>
+          <!-- Punto verde "En La Plaza" -->
+          <span class="absolute bottom-0 right-0 w-3.5 h-3.5 bg-lime-400 border-2 border-teal-800 rounded-full animate-pulse" title="Conectada en Isla Kaia"></span>
+        </div>
+
+        <div>
+          <div class="flex items-center gap-1.5">
+            <h1 class="font-extrabold text-base sm:text-lg tracking-tight text-white drop-shadow-sm">FHYA</h1>
+            <a href="https://www.instagram.com/fhya.cozy?jplx=MTNidHg0MjlncTJwaw==" target="_blank" rel="noopener noreferrer" onclick="event.stopPropagation()" class="text-[11px] bg-white/25 hover:bg-white/35 transition-colors backdrop-blur-sm px-2.5 py-0.5 rounded-full font-bold text-amber-100">@fhya.cozy</a>
+          </div>
+          <p class="text-[10px] sm:text-[11px] font-bold tracking-widest uppercase text-teal-50/95">
+            PLAY TOGETHER • KAIA CREATOR
+          </p>
+        </div>
+      </div>
+
+      <!-- Navegación de Pestañas tipo Píldora -->
+      <nav class="flex items-center gap-1.5 sm:gap-2 bg-teal-950/20 backdrop-blur-md p-1.5 rounded-full border border-white/25">
+        <button onclick="switchTab('home', this)" class="nav-pill px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold transition-all text-white/95 hover:text-white">
+          Home
+        </button>
+        <button onclick="switchTab('about', this)" class="nav-pill active bg-amber-300 text-teal-950 shadow-sm px-4 py-1.5 rounded-full text-xs sm:text-sm font-black transition-all">
+          About
+        </button>
+        <button onclick="switchTab('edits', this)" class="nav-pill px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold transition-all text-white/95 hover:text-white">
+          House &amp; Pets
+        </button>
+      </nav>
+    </header>
+
+    <!-- REPRODUCTOR DE MÚSICA COZY DE ISLA KAIA (3 CANCIONES COZY A ELEGIR + MP3) -->
+    <section class="mb-5">
+      <div class="bg-white/95 backdrop-blur-md border-[3px] border-teal-400 rounded-[28px] sm:rounded-full px-4 py-2.5 shadow-lg flex flex-wrap items-center justify-between gap-3 text-[#145369]">
+        <!-- Disco de vinilo tropical + título -->
+        <div class="flex items-center gap-3 min-w-0 flex-1">
+          <div id="vinyl-disc" class="w-10 h-10 rounded-full bg-gradient-to-tr from-teal-500 via-emerald-400 to-amber-300 p-1.5 shadow-inner flex items-center justify-center shrink-0 animate-vinyl vinyl-paused border-2 border-teal-200">
+            <div class="w-3.5 h-3.5 rounded-full bg-rose-300 border-2 border-white"></div>
+          </div>
+
+          <div class="min-w-0">
+            <div class="flex items-center gap-1.5">
+              <span class="text-[10px] font-black uppercase tracking-wider bg-teal-100 text-teal-800 px-2 py-0.5 rounded-full">KAIA COZY RADIO</span>
+              <div id="music-eq" class="flex items-end gap-0.5 h-3 opacity-40 transition-opacity">
+                <span class="w-0.5 h-3 bg-teal-500 rounded-full eq-bar" style="animation-delay: 0s"></span>
+                <span class="w-0.5 h-2.5 bg-amber-400 rounded-full eq-bar" style="animation-delay: 0.2s"></span>
+                <span class="w-0.5 h-3 bg-rose-400 rounded-full eq-bar" style="animation-delay: 0.4s"></span>
+              </div>
+            </div>
+            <p id="track-title" class="text-xs sm:text-sm font-extrabold truncate text-[#145369] mt-0.5">
+              1. Sunny Plaza Morning • Cozy Acoustic
+            </p>
+          </div>
+        </div>
+
+        <!-- Selector directo de las 3 canciones cozy + Play + Tu MP3 -->
+        <div class="flex items-center gap-1.5 sm:gap-2 shrink-0 flex-wrap">
+          <div class="flex items-center gap-1 bg-teal-50 p-1 rounded-full border border-teal-200" role="group" aria-label="Elegir canción cozy">
+            <button onclick="selectPresetTrack(0)" data-track-idx="0" class="track-pill active px-2.5 py-1 rounded-full text-[11px] font-extrabold bg-teal-500 text-white shadow-xs transition-all">
+              ☀️ 1
+            </button>
+            <button onclick="selectPresetTrack(1)" data-track-idx="1" class="track-pill px-2.5 py-1 rounded-full text-[11px] font-extrabold text-teal-800 hover:bg-teal-100 transition-all">
+              🏡 2
+            </button>
+            <button onclick="selectPresetTrack(2)" data-track-idx="2" class="track-pill px-2.5 py-1 rounded-full text-[11px] font-extrabold text-teal-800 hover:bg-teal-100 transition-all">
+              🌅 3
+            </button>
+          </div>
+
+          <button id="music-play-btn" onclick="toggleMusic()" title="Reproducir / Pausar música" class="w-9 h-9 rounded-full bg-gradient-to-r from-teal-500 to-emerald-500 hover:opacity-95 text-white flex items-center justify-center text-xs shadow-md transition-transform active:scale-95">
+            <i id="music-play-icon" class="fa-solid fa-play ml-0.5"></i>
+          </button>
+
+          <!-- Subir canción MP3 propia -->
+          <label for="custom-audio-input" title="Subir tu propia canción (.mp3 / .wav)" class="cursor-pointer px-3 py-1.5 rounded-full bg-amber-100 hover:bg-amber-200 text-amber-900 font-extrabold text-[11px] flex items-center gap-1.5 transition-colors border border-amber-300">
+            <i class="fa-solid fa-music"></i>
+            <span class="hidden sm:inline">Tu MP3</span>
+          </label>
+          <input id="custom-audio-input" type="file" accept="audio/*" class="hidden" onchange="loadCustomAudio(event)" />
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. TARJETA HERO PRINCIPAL (BANNER SUPERIOR CON PERSONAJE DE PLAY TOGETHER) -->
+    <section class="relative mb-6 sm:mb-7 pt-2">
+      <div class="hero-card rounded-[28px] p-6 sm:p-8 md:p-9 relative overflow-visible">
+        <div class="absolute inset-0 rounded-[28px] overflow-hidden pointer-events-none">
+          <div class="absolute -top-16 -left-16 w-56 h-56 bg-white/20 rounded-full blur-2xl"></div>
+          <div class="absolute bottom-0 right-1/3 w-64 h-32 bg-amber-100/25 rounded-full blur-xl"></div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-12 items-center gap-4 relative z-10">
+          <!-- Texto y Carrusel (Izquierda) -->
+          <div class="md:col-span-7 pr-0 md:pr-2">
+            <p class="text-xs sm:text-sm font-extrabold tracking-widest text-amber-200 mb-1.5 flex items-center gap-2">
+              <span>ISLA KAIA • PLAY TOGETHER</span>
+              <span class="inline-block w-1.5 h-1.5 rounded-full bg-amber-200 animate-ping"></span>
+            </p>
+
+            <div id="hero-slide-content" class="min-h-[145px] sm:min-h-[155px] transition-opacity duration-300">
+              <h2 id="hero-title" class="text-2xl sm:text-3xl md:text-[34px] font-black tracking-tight text-white mb-3 leading-tight drop-shadow-sm">
+                Hi, Kaia Neighbors! 🏝️
+              </h2>
+              <p id="hero-desc" class="text-xs sm:text-sm md:text-[14.5px] leading-relaxed text-teal-50/95 font-medium max-w-md">
+                ¡Bienvenidos a mi rinconcito cozy! Soy <strong>FHYA</strong> (<a href="https://www.instagram.com/fhya.cozy?jplx=MTNidHg0MjlncTJwaw==" target="_blank" rel="noopener noreferrer" class="underline decoration-amber-200 hover:text-amber-200 font-extrabold">@fhya.cozy</a>) y en mi Instagram comparto decoración de casitas pastel, outfits kawaii, pesca al atardecer y fiestas en <strong>Play Together</strong>.
+              </p>
+            </div>
+
+            <!-- Indicadores de Carrusel + Botón IG -->
+            <div class="flex flex-wrap items-center justify-between gap-3 mt-5">
+              <div class="flex items-center gap-2.5">
+                <button onclick="setHeroSlide(0)" aria-label="Slide 1" class="hero-dot h-2.5 w-10 rounded-full bg-white transition-all duration-300 shadow-sm"></button>
+                <button onclick="setHeroSlide(1)" aria-label="Slide 2" class="hero-dot h-2.5 w-8 rounded-full bg-white/45 hover:bg-white/75 transition-all duration-300"></button>
+                <button onclick="setHeroSlide(2)" aria-label="Slide 3" class="hero-dot h-2.5 w-8 rounded-full bg-white/45 hover:bg-white/75 transition-all duration-300"></button>
+              </div>
+
+              <a href="https://www.instagram.com/fhya.cozy?jplx=MTNidHg0MjlncTJwaw==" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-1.5 bg-white/25 hover:bg-white/35 backdrop-blur-md border border-white/50 text-white text-xs font-extrabold px-3.5 py-1.5 rounded-full transition-all shadow-xs">
+                <i class="fa-brands fa-instagram text-sm text-amber-200"></i>
+                <span>Seguir @fhya.cozy</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- ILUSTRACIÓN DE FHYA ESTILO PLAY TOGETHER + PATITO FLOTADOR -->
+          <div class="md:col-span-5 relative flex justify-center md:justify-end mt-2 md:mt-0">
+            <div onclick="showToast('🐤 ¡Cuac! FHYA te invita a su fiesta en Isla Kaia')" class="w-[255px] sm:w-[290px] md:w-[325px] md:-mt-20 md:-mb-10 md:-mr-5 animate-float select-none cursor-pointer group">
+              <svg viewBox="0 0 380 370" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-full h-auto drop-shadow-[0_18px_26px_rgba(14,84,96,0.34)] transition-transform duration-300 group-hover:scale-[1.02]">
+                <defs>
+                  <radialGradient id="kaiaAura" cx="50%" cy="48%" r="50%">
+                    <stop offset="0%" stop-color="#ffffff" stop-opacity="0.88"/>
+                    <stop offset="55%" stop-color="#fef08a" stop-opacity="0.4"/>
+                    <stop offset="100%" stop-color="#2dd4bf" stop-opacity="0"/>
+                  </radialGradient>
+                  <linearGradient id="kaiaHair" x1="190" y1="75" x2="190" y2="310" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#fef3c7"/>
+                    <stop offset="45%" stop-color="#fcd34d"/>
+                    <stop offset="100%" stop-color="#d97706"/>
+                  </linearGradient>
+                  <linearGradient id="kaiaSkin" x1="190" y1="115" x2="190" y2="230" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#fff8f2"/>
+                    <stop offset="75%" stop-color="#ffece0"/>
+                    <stop offset="100%" stop-color="#f7cfc0"/>
+                  </linearGradient>
+                  <linearGradient id="kaiaOveralls" x1="130" y1="225" x2="255" y2="340" gradientUnits="userSpaceOnUse">
+                    <stop offset="0%" stop-color="#6ee7b7"/>
+                    <stop offset="55%" stop-color="#34d399"/>
+                    <stop offset="100%" stop-color="#0d9488"/>
+                  </linearGradient>
+                </defs>
+
+                <!-- Aura cálida solar -->
+                <circle cx="195" cy="182" r="136" fill="url(#kaiaAura)"/>
+
+                <!-- Patito flotador kawaii acompañando a Fhya -->
+                <g class="animate-float-reverse">
+                  <ellipse cx="62" cy="128" rx="30" ry="20" fill="#fde047" stroke="#ca8a04" stroke-width="2"/>
+                  <circle cx="48" cy="108" r="15" fill="#fef08a" stroke="#ca8a04" stroke-width="2"/>
+                  <!-- Pico naranja -->
+                  <ellipse cx="34" cy="111" rx="7" ry="4" fill="#fb923c" stroke="#c2410c" stroke-width="1.4"/>
+                  <!-- Ojito -->
+                  <circle cx="44" cy="105" r="2.2" fill="#1e293b"/>
+                  <circle cx="43.3" cy="104.2" r="0.8" fill="#ffffff"/>
+                  <!-- Rubor -->
+                  <ellipse cx="51" cy="111" rx="3" ry="1.6" fill="#fb7185" opacity="0.7"/>
+                  <!-- Alita -->
+                  <path d="M58 124 Q72 120 74 132 Q62 136 58 124 Z" fill="#facc15" stroke="#ca8a04" stroke-width="1.4"/>
+                </g>
+
+                <!-- Coletas esponjosas estilo Play Together -->
+                <circle cx="114" cy="166" r="34" fill="url(#kaiaHair)" stroke="#b45309" stroke-width="2"/>
+                <circle cx="272" cy="166" r="34" fill="url(#kaiaHair)" stroke="#b45309" stroke-width="2"/>
+                <!-- Lazos coral en las coletas -->
+                <path d="M134 142 L120 132 L124 148 L114 156 L132 152 Z" fill="#fb7185" stroke="#be123c" stroke-width="1.5"/>
+                <path d="M252 142 L266 132 L262 148 L272 156 L254 152 Z" fill="#fb7185" stroke="#be123c" stroke-width="1.5"/>
+
+                <!-- Camiseta crema con mangas abullonadas -->
+                <path d="M116 330 C114 272, 138 234, 166 226 L220 226 C250 234, 272 272, 270 330 Z" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+
+                <!-- Overol Cozy Verde Menta con bolsillo de osito -->
+                <path d="M144 236 L242 236 L252 330 L134 330 Z" fill="url(#kaiaOveralls)" stroke="#0f766e" stroke-width="2" stroke-linejoin="round"/>
+                <!-- Tirantes con botones amarillos -->
+                <rect x="152" y="224" width="14" height="28" rx="4" fill="#34d399" stroke="#0f766e" stroke-width="1.8"/>
+                <rect x="220" y="224" width="14" height="28" rx="4" fill="#34d399" stroke="#0f766e" stroke-width="1.8"/>
+                <circle cx="159" cy="244" r="3.5" fill="#fde047" stroke="#b45309" stroke-width="1.2"/>
+                <circle cx="227" cy="244" r="3.5" fill="#fde047" stroke="#b45309" stroke-width="1.2"/>
+                <!-- Bolsillo central con carita de osito -->
+                <rect x="173" y="264" width="40" height="34" rx="10" fill="#a7f3d0" stroke="#0f766e" stroke-width="1.8"/>
+                <circle cx="186" cy="278" r="2" fill="#134e4a"/>
+                <circle cx="200" cy="278" r="2" fill="#134e4a"/>
+                <ellipse cx="193" cy="283" rx="4" ry="3" fill="#ffffff"/>
+                <circle cx="193" cy="282" r="1.5" fill="#134e4a"/>
+
+                <!-- Brazo saludando alegremente -->
+                <path d="M242 246 C264 234, 286 210, 292 192 C296 182, 308 186, 304 198 C296 224, 272 256, 246 268 Z" fill="url(#kaiaSkin)" stroke="#c78b80" stroke-width="1.8"/>
+                <!-- Manga crema -->
+                <path d="M238 236 C254 232, 268 242, 266 258 L242 266 Z" fill="#fffbeb" stroke="#d97706" stroke-width="1.8"/>
+
+                <!-- Cuello -->
+                <rect x="183" y="198" width="20" height="28" rx="10" fill="url(#kaiaSkin)" stroke="#c78b80" stroke-width="1.6"/>
+
+                <!-- Cabeza redondeada súper cute -->
+                <path d="M138 148 C138 104, 248 104, 248 148 C248 186, 222 208, 193 208 C164 208, 138 186, 138 148 Z" fill="url(#kaiaSkin)" stroke="#c78b80" stroke-width="1.8"/>
+
+                <!-- Rubor melocotón -->
+                <ellipse cx="158" cy="175" rx="12" ry="6" fill="#fb7185" opacity="0.5"/>
+                <ellipse cx="228" cy="175" rx="12" ry="6" fill="#fb7185" opacity="0.5"/>
+
+                <!-- Ojos grandes y brillantes estilo Play Together -->
+                <g class="animate-blink">
+                  <ellipse cx="167" cy="159" rx="11.5" ry="13.5" fill="#134e4a"/>
+                  <ellipse cx="167" cy="162" rx="8.5" ry="8.5" fill="#2dd4bf"/>
+                  <circle cx="163.5" cy="154" r="3.8" fill="#ffffff"/>
+                  <circle cx="171.5" cy="164" r="1.8" fill="#ffffff"/>
+                  <path d="M154 152 Q167 142 180 152" stroke="#0f172a" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+
+                  <ellipse cx="219" cy="159" rx="11.5" ry="13.5" fill="#134e4a"/>
+                  <ellipse cx="219" cy="162" rx="8.5" ry="8.5" fill="#2dd4bf"/>
+                  <circle cx="215.5" cy="154" r="3.8" fill="#ffffff"/>
+                  <circle cx="223.5" cy="164" r="1.8" fill="#ffffff"/>
+                  <path d="M206 152 Q219 142 232 152" stroke="#0f172a" stroke-width="3.2" stroke-linecap="round" fill="none"/>
+                </g>
+
+                <!-- Sonrisa abierta feliz -->
+                <path d="M185 180 Q193 190 201 180 Z" fill="#fb7185" stroke="#be123c" stroke-width="1.6" stroke-linejoin="round"/>
+
+                <!-- Flequillo esponjoso -->
+                <path d="M132 154 C132 94, 254 94, 254 154 C242 134, 228 144, 216 124 C206 144, 196 146, 188 124 C178 146, 162 144, 150 126 C140 142, 136 148, 132 154 Z" fill="url(#kaiaHair)" stroke="#b45309" stroke-width="2" stroke-linejoin="round"/>
+
+                <!-- Gafas de sol corazón en la cabeza -->
+                <g transform="translate(193, 102) rotate(-6)">
+                  <rect x="-34" y="-10" width="28" height="18" rx="9" fill="#fda4af" stroke="#be123c" stroke-width="2"/>
+                  <rect x="6" y="-10" width="28" height="18" rx="9" fill="#fda4af" stroke="#be123c" stroke-width="2"/>
+                  <path d="M-6 -2 L6 -2" stroke="#be123c" stroke-width="2.5"/>
+                  <path d="M-28 -5 L-18 -5" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+                  <path d="M12 -5 L22 -5" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+                </g>
+
+                <!-- Corazoncitos y destellos flotantes -->
+                <path d="M312 106 C312 106, 300 98, 300 91 C300 87, 304 85, 307 87 C309 88, 312 91, 312 91 C312 91, 315 88, 317 87 C320 85, 324 87, 324 91 C324 98, 312 106, 312 106 Z" fill="#fda4af" class="animate-heartbeat"/>
+                <path d="M98 192 L101 199 L108 202 L101 205 L98 212 L95 205 L88 202 L95 199 Z" fill="#fde047" class="animate-twinkle"/>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. GRID INFERIOR ESTILO BENTO -->
+    <section id="bento-main" class="grid grid-cols-1 md:grid-cols-12 gap-5 items-stretch">
+
+      <!-- COLUMNA IZQUIERDA (7 columnas en desktop) -->
+      <div class="md:col-span-7 flex flex-col gap-5">
+
+        <!-- Tarjeta "About Fhya" -->
+        <article id="about-section" class="white-bento bento-card rounded-[28px] p-6 relative overflow-hidden">
+          <div class="flex items-baseline justify-between border-b-2 border-teal-200 pb-2.5 mb-3.5">
+            <h3 class="text-xl sm:text-2xl font-black tracking-tight text-[#145369]">
+              About Fhya
+            </h3>
+            <span class="text-xs sm:text-sm font-extrabold tracking-widest text-[#1d8a99]">
+              カイア島 • KAIA CREATOR
+            </span>
+          </div>
+
+          <div class="grid grid-cols-12 gap-2 items-end">
+            <div class="col-span-8 pr-1">
+              <p class="text-xs sm:text-[13.5px] leading-relaxed font-semibold text-slate-600">
+                Creadora de contenido cozy sobre <span class="text-teal-600 font-extrabold">Play Together</span>. En mi Instagram comparto ideas para decorar tu casita en Isla Kaia, looks pastel, tours por fiestas de vecinos, pesca relajante y momentos divertidos con mascotas. 🐤🏡✨
+              </p>
+              <div class="flex flex-wrap gap-1.5 mt-3">
+                <span class="text-[11px] font-bold bg-teal-100 text-teal-800 px-2.5 py-0.5 rounded-full">#PlayTogether</span>
+                <span class="text-[11px] font-bold bg-amber-100 text-amber-800 px-2.5 py-0.5 rounded-full">#KaiaIsland</span>
+                <span class="text-[11px] font-bold bg-rose-100 text-rose-700 px-2.5 py-0.5 rounded-full">#CozyHouse</span>
+              </div>
+            </div>
+
+            <!-- Mascota Chibi en pijama de Patito -->
+            <div class="col-span-4 flex justify-end items-end">
+              <div class="w-24 sm:w-28 animate-chibi-bounce cursor-pointer" onclick="triggerMascotSparkle()" title="¡Haz clic para saludar a Pipi!">
+                <svg viewBox="0 0 140 150" fill="none" class="w-full h-auto drop-shadow-md">
+                  <ellipse cx="70" cy="141" rx="34" ry="5.5" fill="#99f6e4"/>
+                  <!-- Pijama de patito amarillo -->
+                  <path d="M36 135 C33 102, 44 86, 70 86 C96 86, 107 102, 104 135 Z" fill="#fef08a" stroke="#ca8a04" stroke-width="2.4"/>
+                  <ellipse cx="70" cy="115" rx="17" ry="15" fill="#ffffff"/>
+                  <circle cx="70" cy="109" r="2.5" fill="#fb923c"/>
+                  <circle cx="70" cy="120" r="2.5" fill="#fb923c"/>
+                  <!-- Manitas -->
+                  <ellipse cx="38" cy="108" rx="9" ry="6.5" transform="rotate(-25 38 108)" fill="#fef08a" stroke="#ca8a04" stroke-width="2"/>
+                  <ellipse cx="102" cy="108" rx="9" ry="6.5" transform="rotate(25 102 108)" fill="#fef08a" stroke="#ca8a04" stroke-width="2"/>
+                  <!-- Capucha de Patito -->
+                  <circle cx="70" cy="60" r="36" fill="#fef08a" stroke="#ca8a04" stroke-width="2.4"/>
+                  <!-- Piquito de pato arriba -->
+                  <ellipse cx="70" cy="24" rx="11" ry="5.5" fill="#fb923c" stroke="#c2410c" stroke-width="1.8"/>
+                  <circle cx="58" cy="32" r="2.2" fill="#1e293b"/>
+                  <circle cx="82" cy="32" r="2.2" fill="#1e293b"/>
+                  <!-- Carita Chibi -->
+                  <ellipse cx="70" cy="65" rx="26" ry="21" fill="#fff5ef" stroke="#d49a8e" stroke-width="1.5"/>
+                  <ellipse cx="52" cy="70" rx="5" ry="2.6" fill="#fb7185" opacity="0.65"/>
+                  <ellipse cx="88" cy="70" rx="5" ry="2.6" fill="#fb7185" opacity="0.65"/>
+                  <g class="animate-blink">
+                    <ellipse cx="58" cy="63" rx="4.4" ry="5.4" fill="#134e4a"/>
+                    <ellipse cx="82" cy="63" rx="4.4" ry="5.4" fill="#134e4a"/>
+                    <circle cx="56.5" cy="61" r="1.7" fill="#ffffff"/>
+                    <circle cx="80.5" cy="61" r="1.7" fill="#ffffff"/>
+                  </g>
+                  <path d="M66 72 Q68 74.5 70 72 Q72 74.5 74 72" stroke="#e11d48" stroke-width="1.9" stroke-linecap="round" fill="none"/>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- Fila de 2 Widgets Cuadrados -->
+        <div class="grid grid-cols-2 gap-4 sm:gap-5">
+          <!-- Widget Izquierdo Turquesa: Cumpleaños / Fecha Especial -->
+          <div onclick="celebrateBirthday()" class="teal-bento bento-card cursor-pointer rounded-[26px] p-5 flex flex-col justify-between text-white relative overflow-hidden min-h-[158px] group">
+            <div class="flex items-start justify-between">
+              <div>
+                <span class="text-4xl sm:text-[42px] font-black leading-none tracking-tight block">14</span>
+                <span class="text-xs sm:text-sm font-bold text-teal-50 mt-1 block">November</span>
+              </div>
+              <div class="w-11 h-11 text-amber-200 animate-float">
+                <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M8 38h32" />
+                  <path d="M10 38V26a4 4 0 0 1 4-4h20a4 4 0 0 1 4 4v12" />
+                  <path d="M10 30c3 2 6 2 9 0s6-2 10 0 6 2 9 0" />
+                  <path d="M18 22v-6" />
+                  <path d="M24 22v-8" />
+                  <path d="M30 22v-6" />
+                  <circle cx="18" cy="12" r="1.8" fill="#fef08a" stroke="none" class="animate-twinkle"/>
+                  <circle cx="24" cy="10" r="2.2" fill="#fda4af" stroke="none" class="animate-twinkle-delay"/>
+                  <circle cx="30" cy="12" r="1.8" fill="#fef08a" stroke="none" class="animate-twinkle"/>
+                </svg>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-between mt-4 pt-1">
+              <span class="text-2xl sm:text-3xl font-black text-white/95" title="Isla">島</span>
+              <div class="flex items-center gap-1.5">
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-200"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-white/80"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-white/50"></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Widget Derecho Blanco: Reloj Digital en Tiempo Real -->
+          <div class="white-bento bento-card rounded-[26px] p-5 flex flex-col justify-center min-h-[158px]">
+            <div class="flex items-baseline gap-1 text-[#145369]">
+              <span id="live-time" class="text-3xl sm:text-[34px] font-black tracking-tight leading-none">9:28</span>
+              <span id="live-ampm" class="text-sm sm:text-base font-extrabold uppercase">PM</span>
+            </div>
+            <p id="live-weekday" class="text-xs sm:text-sm font-bold text-slate-500 mt-2">
+              Thursday
+            </p>
+            <p id="live-date" class="text-lg sm:text-xl font-black text-[#145369] leading-tight mt-0.5">
+              Nov. 2026
+            </p>
+          </div>
+        </div>
+
+        <!-- Barra Inferior de Comunidad / Links -->
+        <div class="bg-white/95 rounded-full px-3.5 py-2.5 shadow-lg border-2 border-teal-400 flex flex-wrap items-center justify-between gap-2">
+          <!-- 5 Mini Avatares de Lugares / Mascotas de Play Together -->
+          <div class="flex items-center -space-x-1 sm:space-x-1.5">
+            <button onclick="showToast('🎡 La Plaza • Punto de encuentro de FHYA')" class="relative group focus:outline-none" title="La Plaza">
+              <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-amber-100 border-2 border-teal-400 flex items-center justify-center text-sm shadow-sm transition-transform group-hover:scale-110">🎡</div>
+              <span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-lime-400 border border-white rounded-full"></span>
+            </button>
+            <button onclick="showToast('🏡 Home Party • Casa Pastel Abierta')" class="relative group focus:outline-none" title="Home Party">
+              <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-rose-100 border-2 border-teal-400 flex items-center justify-center text-sm shadow-sm transition-transform group-hover:scale-110">🏡</div>
+              <span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-lime-400 border border-white rounded-full"></span>
+            </button>
+            <button onclick="showToast('🐤 Mascota Pipi • Nivel Máximo')" class="relative group focus:outline-none" title="Mascota Pipi">
+              <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-yellow-100 border-2 border-teal-400 flex items-center justify-center text-sm shadow-sm transition-transform group-hover:scale-110">🐤</div>
+              <span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-lime-400 border border-white rounded-full"></span>
+            </button>
+            <button onclick="showToast('🎣 Muelle del Faro • Pesca de Peces Raros')" class="relative group focus:outline-none" title="Muelle Pesca">
+              <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-cyan-100 border-2 border-teal-400 flex items-center justify-center text-sm shadow-sm transition-transform group-hover:scale-110">🎣</div>
+              <span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-lime-400 border border-white rounded-full"></span>
+            </button>
+            <button onclick="showToast('🍦 Heladería Kaia • Outfit Showcase')" class="relative group focus:outline-none" title="Heladería Kaia">
+              <div class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-pink-100 border-2 border-teal-400 flex items-center justify-center text-sm shadow-sm transition-transform group-hover:scale-110">🍦</div>
+              <span class="absolute bottom-0 right-0 w-2.5 h-2.5 bg-lime-400 border border-white rounded-full"></span>
+            </button>
+          </div>
+
+          <!-- 4 Botones Circulares de Acción -->
+          <div class="flex items-center gap-1.5 sm:gap-2">
+            <button onclick="openSocialModal('dm')" title="Enviar saludo a FHYA" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#2ba5b5] hover:bg-[#1d8a99] text-white flex items-center justify-center text-xs sm:text-sm shadow-sm transition-transform hover:scale-105">
+              <i class="fa-solid fa-envelope"></i>
+            </button>
+            <a href="https://www.instagram.com/fhya.cozy?jplx=MTNidHg0MjlncTJwaw==" target="_blank" rel="noopener noreferrer" title="Instagram @fhya.cozy" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#2ba5b5] hover:bg-[#1d8a99] text-white flex items-center justify-center text-xs sm:text-sm shadow-sm transition-transform hover:scale-105">
+              <i class="fa-brands fa-instagram"></i>
+            </a>
+            <button onclick="copyGameID()" title="Copiar ID de Play Together" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#2ba5b5] hover:bg-[#1d8a99] text-white flex items-center justify-center text-xs sm:text-sm shadow-sm transition-transform hover:scale-105">
+              <i class="fa-solid fa-location-dot"></i>
+            </button>
+            <button onclick="openGalleryModal()" title="Ver Posts y Decoraciones" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-[#2ba5b5] hover:bg-[#1d8a99] text-white flex items-center justify-center text-xs sm:text-sm shadow-sm transition-transform hover:scale-105">
+              <i class="fa-solid fa-video"></i>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- COLUMNA DERECHA (5 columnas en desktop: 4 Tarjetas Temáticas Play Together) -->
+      <div id="versions-grid" class="md:col-span-5 grid grid-cols-2 gap-4 sm:gap-5">
+
+        <!-- Tarjeta Alta 1: House Ver. (Casita Pastel Cozy de Play Together) -->
+        <div onclick="openVersionModal('house')" class="bento-card cursor-pointer rounded-[28px] bg-gradient-to-b from-[#bae6fd] via-[#fef3c7] to-[#fde68a] border-[3px] border-white relative overflow-hidden min-h-[245px] sm:min-h-[265px] flex flex-col justify-between group shadow-lg">
+          <svg viewBox="0 0 200 270" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            <!-- Nubes pastel -->
+            <g class="animate-float" opacity="0.85">
+              <ellipse cx="48" cy="48" rx="24" ry="9" fill="#ffffff"/>
+              <circle cx="42" cy="42" r="10" fill="#ffffff"/>
+              <circle cx="55" cy="41" r="11" fill="#ffffff"/>
+            </g>
+            <!-- Jardín verde -->
+            <ellipse cx="100" cy="235" rx="125" ry="58" fill="#86efac"/>
+            <ellipse cx="100" cy="245" rx="115" ry="48" fill="#4ade80"/>
+            <!-- Camino de piedritas -->
+            <ellipse cx="100" cy="206" rx="14" ry="5" fill="#fef9c3"/>
+            <ellipse cx="96" cy="222" rx="17" ry="6" fill="#fef9c3"/>
+            <ellipse cx="104" cy="238" rx="19" ry="6" fill="#fef9c3"/>
+
+            <!-- CASITA PASTEL DE PLAY TOGETHER -->
+            <g class="animate-float-reverse">
+              <!-- Chimenea con corazones de humo -->
+              <rect x="128" y="88" width="14" height="26" rx="3" fill="#fda4af" stroke="#be123c" stroke-width="1.6"/>
+              <circle cx="135" cy="76" r="4" fill="#ffffff" opacity="0.85" class="animate-twinkle"/>
+              <circle cx="141" cy="64" r="5.5" fill="#ffffff" opacity="0.7" class="animate-twinkle-delay"/>
+
+              <!-- Fachada crema -->
+              <rect x="44" y="128" width="112" height="72" rx="12" fill="#fffbeb" stroke="#d97706" stroke-width="2"/>
+              <!-- Tejado rosa fresa -->
+              <path d="M32 134 L100 82 L168 134 Z" fill="#fb7185" stroke="#be123c" stroke-width="2" stroke-linejoin="round"/>
+              <path d="M44 134 L100 91 L156 134" stroke="#ffe4e6" stroke-width="3" fill="none"/>
+
+              <!-- Ventana redonda en el ático -->
+              <circle cx="100" cy="114" r="11" fill="#fef08a" stroke="#b45309" stroke-width="2"/>
+              <line x1="100" y1="103" x2="100" y2="125" stroke="#b45309" stroke-width="1.5"/>
+              <line x1="89" y1="114" x2="111" y2="114" stroke="#b45309" stroke-width="1.5"/>
+
+              <!-- Puerta turquesa redondeada -->
+              <path d="M86 200 L86 164 C86 154, 114 154, 114 164 L114 200 Z" fill="#5eead4" stroke="#0f766e" stroke-width="2"/>
+              <circle cx="107" cy="180" r="2.5" fill="#fde047"/>
+
+              <!-- Ventanitas laterales con jardineras -->
+              <rect x="56" y="156" width="20" height="20" rx="5" fill="#bae6fd" stroke="#0284c7" stroke-width="1.8"/>
+              <rect x="124" y="156" width="20" height="20" rx="5" fill="#bae6fd" stroke="#0284c7" stroke-width="1.8"/>
+            </g>
+
+            <!-- Buzón kawaii con banderita -->
+            <rect x="34" y="182" width="4" height="24" fill="#92400e"/>
+            <rect x="27" y="172" width="18" height="12" rx="5" fill="#38bdf8" stroke="#0369a1" stroke-width="1.6"/>
+            <path d="M45 174 L51 170 L51 177 Z" fill="#facc15"/>
+          </svg>
+          <div class="relative z-10 pb-3.5 pt-8 bg-gradient-to-t from-teal-950/65 via-teal-950/20 to-transparent text-center">
+            <span class="text-white font-extrabold text-sm sm:text-[15px] tracking-wide drop-shadow">
+              House Ver.
+            </span>
+          </div>
+        </div>
+
+        <!-- Tarjeta Alta 2: Kaia Ver. (Muelle de Pesca & Huevo de Mascota) -->
+        <div onclick="openVersionModal('kaia')" class="bento-card cursor-pointer rounded-[28px] bg-gradient-to-b from-[#38bdf8] via-[#2dd4bf] to-[#0d9488] border-[3px] border-white relative overflow-hidden min-h-[245px] sm:min-h-[265px] flex flex-col justify-between group shadow-lg">
+          <svg viewBox="0 0 200 270" class="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            <!-- Sol cálido -->
+            <circle cx="152" cy="48" r="22" fill="#fef08a" opacity="0.85" class="animate-twinkle"/>
+            <!-- Gaviotas -->
+            <path d="M44 54 Q50 48 56 54 Q62 48 68 54" stroke="#ffffff" stroke-width="2" stroke-linecap="round" fill="none"/>
+
+            <!-- Mar cristalino -->
+            <rect x="0" y="118" width="200" height="152" fill="#06b6d4"/>
+            <path d="M0 135 Q50 128 100 135 T200 135" stroke="#a5f3fc" stroke-width="2.5" fill="none" opacity="0.7"/>
+            <path d="M0 165 Q50 158 100 165 T200 165" stroke="#a5f3fc" stroke-width="2" fill="none" opacity="0.5"/>
+
+            <!-- Muelle de madera -->
+            <rect x="0" y="102" width="115" height="18" rx="4" fill="#d97706" stroke="#78350f" stroke-width="1.8"/>
+            <rect x="22" y="120" width="8" height="36" fill="#92400e"/>
+            <rect x="86" y="120" width="8" height="36" fill="#92400e"/>
+
+            <!-- Huevo de Mascota descansando en el muelle -->
+            <g class="animate-chibi-bounce" style="transform-origin: 48px 102px;">
+              <ellipse cx="48" cy="86" rx="14" ry="18" fill="#fffbeb" stroke="#d97706" stroke-width="1.8"/>
+              <circle cx="43" cy="82" r="3" fill="#fda4af"/>
+              <circle cx="53" cy="90" r="3.5" fill="#6ee7b7"/>
+              <circle cx="46" cy="94" r="2.2" fill="#fde047"/>
+            </g>
+
+            <!-- Caña de pescar y boya saltando en el agua -->
+            <line x1="96" y1="104" x2="146" y2="74" stroke="#78350f" stroke-width="3" stroke-linecap="round"/>
+            <line x1="146" y1="74" x2="146" y2="152" stroke="#ffffff" stroke-width="1.2" stroke-dasharray="3 2"/>
+
+            <!-- Boya roja y blanca -->
+            <g class="animate-bobber">
+              <circle cx="146" cy="154" r="8" fill="#ffffff" stroke="#be123c" stroke-width="1.6"/>
+              <path d="M138 154 A8 8 0 0 1 154 154 Z" fill="#fb7185"/>
+              <ellipse cx="146" cy="162" rx="16" ry="4" stroke="#ffffff" stroke-width="1.5" fill="none" opacity="0.8"/>
+            </g>
+
+            <!-- Sombra de pez gigante con coronita -->
+            <g class="animate-float-reverse">
+              <ellipse cx="118" cy="202" rx="34" ry="13" fill="#0e7490" opacity="0.65"/>
+              <polygon points="148,202 166,191 166,213" fill="#0e7490" opacity="0.65"/>
+              <path d="M104 186 L107 180 L111 185 L115 180 L118 186 Z" fill="#fde047"/>
+            </g>
+          </svg>
+          <div class="relative z-10 pb-3.5 pt-8 bg-gradient-to-t from-teal-950/70 via-teal-950/20 to-transparent text-center">
+            <span class="text-white font-extrabold text-sm sm:text-[15px] tracking-wide drop-shadow">
+              Kaia Ver.
+            </span>
+          </div>
+        </div>
+
+        <!-- Tarjeta Cuadrada 3: Smol Ver. (Chibi con Patito y Corazón) -->
+        <div onclick="openVersionModal('smol')" class="bento-card cursor-pointer rounded-[26px] bg-gradient-to-br from-[#fef3c7] via-[#fffbeb] to-[#ccfbf1] border-[3px] border-white relative overflow-hidden aspect-square flex flex-col justify-between group shadow-md">
+          <svg viewBox="0 0 180 180" class="w-full h-full p-2 transition-transform duration-300 group-hover:scale-105">
+            <!-- Estrellitas y flores -->
+            <circle cx="34" cy="60" r="5" fill="#fda4af"/>
+            <circle cx="148" cy="56" r="5" fill="#5eead4"/>
+            <circle cx="38" cy="126" r="4.5" fill="#fde047"/>
+            <circle cx="144" cy="124" r="4.5" fill="#fda4af"/>
+
+            <!-- Cabello chibi rubio miel -->
+            <path d="M44 96 C38 56, 142 56, 136 96 C140 122, 122 136, 90 136 C58 136, 40 122, 44 96 Z" fill="#fcd34d" stroke="#b45309" stroke-width="2.2"/>
+            <!-- Carita chibi -->
+            <ellipse cx="90" cy="95" rx="34" ry="26" fill="#fff5ee" stroke="#c98d84" stroke-width="1.8"/>
+            <ellipse cx="66" cy="101" rx="6.5" ry="3.5" fill="#fb7185" opacity="0.6"/>
+            <ellipse cx="114" cy="101" rx="6.5" ry="3.5" fill="#fb7185" opacity="0.6"/>
+            <!-- Ojos chibi -->
+            <g class="animate-blink">
+              <ellipse cx="75" cy="92" rx="6" ry="7.5" fill="#134e4a"/>
+              <ellipse cx="105" cy="92" rx="6" ry="7.5" fill="#134e4a"/>
+              <circle cx="73" cy="89" r="2.4" fill="#ffffff"/>
+              <circle cx="103" cy="89" r="2.4" fill="#ffffff"/>
+            </g>
+            <!-- Flequillo -->
+            <path d="M54 88 C58 58, 122 58, 126 88 C114 76, 102 82, 90 70 C78 82, 66 76, 54 88 Z" fill="#fde68a" stroke="#b45309" stroke-width="2"/>
+            <!-- Mini patito sobre la cabeza -->
+            <g transform="translate(106, 48) rotate(10)">
+              <ellipse cx="0" cy="8" rx="14" ry="10" fill="#facc15" stroke="#ca8a04" stroke-width="1.6"/>
+              <circle cx="-6" cy="-2" r="8" fill="#fef08a" stroke="#ca8a04" stroke-width="1.6"/>
+              <ellipse cx="-14" cy="0" rx="4" ry="2.2" fill="#fb923c"/>
+              <circle cx="-8" cy="-4" r="1.4" fill="#1e293b"/>
+            </g>
+            <!-- Corazón coral -->
+            <path d="M90 127 C90 127, 72 115, 72 105 C72 99, 78 96, 83 99 C86 101, 90 105, 90 105 C90 105, 94 101, 97 99 C102 96, 108 99, 108 105 C108 115, 90 127, 90 127 Z" fill="#fda4af" stroke="#e11d48" stroke-width="1.8" class="animate-heartbeat"/>
+          </svg>
+          <div class="relative z-10 text-center pb-2.5 -mt-6">
+            <span class="text-[#145369] font-black text-xs sm:text-sm tracking-tight bg-white/90 px-2.5 py-0.5 rounded-full shadow-xs">
+              Smol Ver.
+            </span>
+          </div>
+        </div>
+
+        <!-- Tarjeta Cuadrada 4: VIEW MORE > -->
+        <button onclick="openGalleryModal()" class="teal-bento bento-card cursor-pointer rounded-[26px] p-5 aspect-square flex flex-col justify-between text-left relative overflow-hidden group focus:outline-none">
+          <div class="absolute -right-6 -top-6 w-24 h-24 bg-amber-200/25 rounded-full blur-lg group-hover:scale-125 transition-transform"></div>
+
+          <div class="mt-1">
+            <span class="block text-xl sm:text-2xl font-black tracking-wide text-white leading-tight">
+              VIEW
+            </span>
+            <span class="block text-xl sm:text-2xl font-black tracking-wide text-white leading-tight">
+              MORE
+            </span>
+            <span class="text-[11px] font-bold text-teal-50/90 mt-1 block">
+              Kaia Posts &amp; Reels
+            </span>
+          </div>
+
+          <div class="self-end w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white text-[#2496a3] flex items-center justify-center shadow-md transition-transform duration-300 group-hover:translate-x-1 group-hover:scale-105">
+            <i class="fa-solid fa-chevron-right text-xl sm:text-2xl font-black"></i>
+          </div>
+        </button>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- NOTIFICACIÓN TOAST FLOTANTE -->
+  <div id="toast" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-teal-950/90 backdrop-blur-md text-white px-5 py-2.5 rounded-full text-xs sm:text-sm font-bold shadow-xl border border-teal-300/40 opacity-0 pointer-events-none transition-all duration-300 flex items-center gap-2">
+    <span class="w-2 h-2 rounded-full bg-amber-300 animate-ping"></span>
+    <span id="toast-msg">¡Listo!</span>
+  </div>
+
+  <!-- MODAL INTERACTIVO -->
+  <div id="modal-overlay" onclick="closeModalOnBg(event)" class="fixed inset-0 z-50 bg-teal-950/65 backdrop-blur-sm hidden items-center justify-center p-4 transition-opacity">
+    <div id="modal-card" class="bg-white text-slate-800 rounded-[30px] border-4 border-teal-400 max-w-md w-full p-6 shadow-2xl relative">
+      <button onclick="closeModal()" aria-label="Cerrar" class="absolute top-4 right-4 w-9 h-9 rounded-full bg-teal-100 hover:bg-teal-200 text-teal-800 flex items-center justify-center font-bold transition-colors z-10">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <script>
+    // 1. BURBUJAS Y DESTELLOS SUAVES DE ISLA KAIA EN CANVAS
+    (function initKaiaCanvas() {
+      const canvas = document.getElementById('kaia-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let width = (canvas.width = window.innerWidth);
+      let height = (canvas.height = window.innerHeight);
+
+      const bubbles = Array.from({ length: 36 }, () => ({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        r: Math.random() * 4.5 + 1.5,
+        vy: -(Math.random() * 0.35 + 0.12),
+        wobble: Math.random() * Math.PI * 2
+      }));
+
+      function render() {
+        ctx.clearRect(0, 0, width, height);
+        for (const b of bubbles) {
+          b.y += b.vy;
+          b.wobble += 0.02;
+          const drawX = b.x + Math.sin(b.wobble) * 6;
+          if (b.y < -12) {
+            b.y = height + 12;
+            b.x = Math.random() * width;
+          }
+          ctx.beginPath();
+          ctx.arc(drawX, b.y, b.r, 0, Math.PI * 2);
+          ctx.fillStyle = 'rgba(255, 255, 255, 0.28)';
+          ctx.fill();
+        }
+        requestAnimationFrame(render);
+      }
+
+      window.addEventListener('resize', () => {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+      });
+      render();
+    })();
+
+    // 2. CARRUSEL DEL BANNER SUPERIOR
+    const heroSlides = [
+      {
+        title: "Hi, Kaia Neighbors! 🏝️",
+        desc: "¡Bienvenidos a mi rinconcito cozy! Soy <strong>FHYA</strong> (<a href='https://www.instagram.com/fhya.cozy?jplx=MTNidHg0MjlncTJwaw==' target='_blank' rel='noopener noreferrer' class='underline decoration-amber-200 hover:text-amber-200 font-extrabold'>@fhya.cozy</a>) y en mi Instagram comparto decoración de casitas pastel, outfits kawaii, pesca al atardecer y fiestas en <strong>Play Together</strong>."
+      },
+      {
+        title: "Cozy House & Outfits 🏡",
+        desc: "Descubre tutoriales paso a paso para construir habitaciones aesthetic, cafeterías pastel y jardines secretos en Isla Kaia sin gastar de más."
+      },
+      {
+        title: "Home Parties & Pets 🐤",
+        desc: "¡Únete a nuestras fiestas temáticas y sesiones de fotos en La Plaza! Sígueme en <strong>@fhya.cozy</strong> para enterarte de la próxima reunión."
+      }
+    ];
+
+    let currentSlide = 0;
+
+    function setHeroSlide(index) {
+      currentSlide = index;
+      const contentBox = document.getElementById('hero-slide-content');
+      const titleEl = document.getElementById('hero-title');
+      const descEl = document.getElementById('hero-desc');
+      const dots = document.querySelectorAll('.hero-dot');
+
+      contentBox.style.opacity = '0';
+      setTimeout(() => {
+        titleEl.innerHTML = heroSlides[index].title;
+        descEl.innerHTML = heroSlides[index].desc;
+        contentBox.style.opacity = '1';
+      }, 180);
+
+      dots.forEach((dot, i) => {
+        if (i === index) {
+          dot.classList.remove('w-8', 'bg-white/45');
+          dot.classList.add('w-10', 'bg-white');
+        } else {
+          dot.classList.remove('w-10', 'bg-white');
+          dot.classList.add('w-8', 'bg-white/45');
+        }
+      });
+    }
+
+    setInterval(() => {
+      setHeroSlide((currentSlide + 1) % heroSlides.length);
+    }, 6500);
+
+    // 3. NAVEGACIÓN DE PESTAÑAS
+    function switchTab(tabName, btnEl) {
+      document.querySelectorAll('.nav-pill').forEach(btn => {
+        btn.classList.remove('active', 'bg-amber-300', 'text-teal-950', 'font-black', 'shadow-sm');
+        btn.classList.add('text-white/95', 'font-bold');
+      });
+      btnEl.classList.remove('text-white/95', 'font-bold');
+      btnEl.classList.add('active', 'bg-amber-300', 'text-teal-950', 'font-black', 'shadow-sm');
+
+      if (tabName === 'home') {
+        setHeroSlide(0);
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else if (tabName === 'about') {
+        document.getElementById('about-section').scrollIntoView({ behavior: 'smooth', block: 'center' });
+      } else if (tabName === 'edits') {
+        openGalleryModal();
+      }
+    }
+
+    // 4. RELOJ EN VIVO
+    function updateLiveClock() {
+      const now = new Date();
+      let hours = now.getHours();
+      const minutes = String(now.getMinutes()).padStart(2, '0');
+      const ampm = hours >= 12 ? 'PM' : 'AM';
+      hours = hours % 12 || 12;
+
+      const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+      const months = ['Jan.', 'Feb.', 'Mar.', 'Apr.', 'May', 'Jun.', 'Jul.', 'Aug.', 'Sep.', 'Oct.', 'Nov.', 'Dec.'];
+
+      document.getElementById('live-time').textContent = `${hours}:${minutes}`;
+      document.getElementById('live-ampm').textContent = ampm;
+      document.getElementById('live-weekday').textContent = weekdays[now.getDay()];
+      document.getElementById('live-date').textContent = `${months[now.getMonth()]} ${now.getFullYear()}`;
+    }
+    updateLiveClock();
+    setInterval(updateLiveClock, 10000);
+
+    // 5. TOAST Y ACCIONES RÁPIDAS
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      document.getElementById('toast-msg').textContent = message;
+      toast.classList.remove('opacity-0', 'translate-y-2');
+      toast.classList.add('opacity-100', 'translate-y-0');
+
+      clearTimeout(window.toastTimer);
+      window.toastTimer = setTimeout(() => {
+        toast.classList.add('opacity-0', 'translate-y-2');
+        toast.classList.remove('opacity-100', 'translate-y-0');
+      }, 2800);
+    }
+
+    function copyTextFallback(text) {
+      const tempInput = document.createElement('input');
+      tempInput.value = text;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempInput);
+    }
+
+    function copyGameID() {
+      const gameNick = 'FHYA_Kaia';
+      copyTextFallback(gameNick);
+      showToast(`🏝️ Nick en Play Together copiado: ${gameNick}`);
+    }
+
+    function triggerMascotSparkle() {
+      showToast('🐤 ¡Pipi el patito te manda un abrazo cozy!');
+    }
+
+    function celebrateBirthday() {
+      showToast('🎂 ¡14 de Noviembre! Fiesta de cumpleaños en Isla Kaia 🎉');
+    }
+
+    // 6. REPRODUCTOR DE MÚSICA COZY (3 CANCIONES COZY A ELEGIR + MP3 PROPIO)
+    let isPlayingMusic = false;
+    let musicMode = 'synth';
+    let currentPresetIndex = 0;
+    let synthLoop = null;
+    let cozySynth = null;
+    let padSynth = null;
+    const customAudioPlayer = new Audio();
+    customAudioPlayer.loop = true;
+
+    const kaiaTracks = [
+      {
+        name: '1. Sunny Plaza Morning • Cozy Acoustic',
+        tempo: 82,
+        notes: ['E5', 'G5', 'A5', 'G5', 'E5', 'C5', 'D5', 'E5', 'G5', 'A5', 'C6', 'B5', 'G5', 'E5', 'D5', 'C5'],
+        chords: [['C4', 'E4', 'G4'], ['A3', 'C4', 'E4'], ['F3', 'A3', 'C4'], ['G3', 'B3', 'D4']]
+      },
+      {
+        name: '2. Pastel House Party • Rainy Lo-Fi',
+        tempo: 72,
+        notes: ['A4', 'C5', 'E5', 'G5', 'F5', 'E5', 'C5', 'A4', 'D5', 'F5', 'A5', 'G5', 'E5', 'C5', 'B4', 'G4'],
+        chords: [['F3', 'A3', 'C4', 'E4'], ['E3', 'G3', 'B3', 'D4'], ['D3', 'F3', 'A3', 'C4'], ['G3', 'B3', 'D4', 'F4']]
+      },
+      {
+        name: '3. Sunset Pier Fishing • Starlight Breeze',
+        tempo: 68,
+        notes: ['B4', 'D5', 'F#5', 'A5', 'G5', 'F#5', 'D5', 'B4', 'E5', 'G5', 'B5', 'A5', 'F#5', 'D5', 'E5', 'D5'],
+        chords: [['G3', 'B3', 'D4', 'F#4'], ['E3', 'G3', 'B3', 'D4'], ['C3', 'E3', 'G3', 'B3'], ['D3', 'F#3', 'A3', 'C4']]
+      }
+    ];
+
+    function updateTrackPills(activeIdx) {
+      document.querySelectorAll('.track-pill').forEach((pill, i) => {
+        if (i === activeIdx) {
+          pill.classList.add('active', 'bg-teal-500', 'text-white', 'shadow-xs');
+          pill.classList.remove('text-teal-800', 'hover:bg-teal-100');
+        } else {
+          pill.classList.remove('active', 'bg-teal-500', 'text-white', 'shadow-xs');
+          pill.classList.add('text-teal-800', 'hover:bg-teal-100');
+        }
+      });
+    }
+
+    function updateMusicUI(playing) {
+      const icon = document.getElementById('music-play-icon');
+      const vinyl = document.getElementById('vinyl-disc');
+      const eq = document.getElementById('music-eq');
+
+      if (playing) {
+        icon.classList.remove('fa-play', 'ml-0.5');
+        icon.classList.add('fa-pause');
+        vinyl.classList.remove('vinyl-paused');
+        eq.classList.remove('opacity-40');
+        eq.classList.add('opacity-100');
+      } else {
+        icon.classList.remove('fa-pause');
+        icon.classList.add('fa-play', 'ml-0.5');
+        vinyl.classList.add('vinyl-paused');
+        eq.classList.remove('opacity-100');
+        eq.classList.add('opacity-40');
+      }
+    }
+
+    async function startSynthMusic() {
+      await Tone.start();
+      if (!cozySynth) {
+        const reverb = new Tone.Reverb({ decay: 3.1, wet: 0.45 }).toDestination();
+        cozySynth = new Tone.PolySynth(Tone.Synth, {
+          oscillator: { type: 'sine' },
+          envelope: { attack: 0.06, decay: 0.38, sustain: 0.22, release: 1.2 }
+        }).connect(reverb);
+        cozySynth.volume.value = -10;
+
+        padSynth = new Tone.PolySynth(Tone.Synth, {
+          oscillator: { type: 'triangle' },
+          envelope: { attack: 0.35, decay: 0.6, sustain: 0.4, release: 1.8 }
+        }).connect(reverb);
+        padSynth.volume.value = -19;
+      }
+      if (synthLoop) synthLoop.dispose();
+
+      const track = kaiaTracks[currentPresetIndex];
+      Tone.Transport.bpm.value = track.tempo;
+      let step = 0;
+
+      synthLoop = new Tone.Loop((time) => {
+        const note = track.notes[step % track.notes.length];
+        cozySynth.triggerAttackRelease(note, '8n', time);
+        if (step % 4 === 0) {
+          const chord = track.chords[Math.floor(step / 4) % track.chords.length];
+          padSynth.triggerAttackRelease(chord, '2n', time);
+        }
+        step++;
+      }, '8n').start(0);
+
+      Tone.Transport.start();
+    }
+
+    function stopAllMusic() {
+      Tone.Transport.stop();
+      customAudioPlayer.pause();
+      isPlayingMusic = false;
+      updateMusicUI(false);
+    }
+
+    async function toggleMusic() {
+      if (isPlayingMusic) {
+        stopAllMusic();
+        showToast('⏸️ Música pausada');
+      } else {
+        if (musicMode === 'custom' && customAudioPlayer.src) {
+          await customAudioPlayer.play();
+        } else {
+          await startSynthMusic();
+        }
+        isPlayingMusic = true;
+        updateMusicUI(true);
+        showToast(`🎵 Sonando: ${document.getElementById('track-title').textContent}`);
+      }
+    }
+
+    async function selectPresetTrack(index) {
+      musicMode = 'synth';
+      customAudioPlayer.pause();
+      currentPresetIndex = index;
+      updateTrackPills(index);
+      const track = kaiaTracks[currentPresetIndex];
+      document.getElementById('track-title').textContent = track.name;
+      await startSynthMusic();
+      isPlayingMusic = true;
+      updateMusicUI(true);
+      showToast(`🎶 Sonando: ${track.name}`);
+    }
+
+    async function loadCustomAudio(event) {
+      const file = event.target.files[0];
+      if (!file) return;
+      Tone.Transport.stop();
+      updateTrackPills(-1);
+      const fileUrl = URL.createObjectURL(file);
+      customAudioPlayer.src = fileUrl;
+      musicMode = 'custom';
+      const cleanName = file.name.replace(/\.[^/.]+$/, '');
+      document.getElementById('track-title').textContent = `${cleanName} • Custom Track`;
+      await customAudioPlayer.play();
+      isPlayingMusic = true;
+      updateMusicUI(true);
+      showToast(`🎧 Reproduciendo tu canción: ${cleanName}`);
+    }
+
+    // 7. MODALES INTERACTIVOS
+    const modalOverlay = document.getElementById('modal-overlay');
+    const modalBody = document.getElementById('modal-body');
+
+    function openModal() {
+      modalOverlay.classList.remove('hidden');
+      modalOverlay.classList.add('flex');
+    }
+
+    function closeModal() {
+      modalOverlay.classList.add('hidden');
+      modalOverlay.classList.remove('flex');
+    }
+
+    function closeModalOnBg(e) {
+      if (e.target === modalOverlay) closeModal();
+    }
+
+    function openProfileModal() {
+      modalBody.innerHTML = `
+        <div class="text-center">
+          <div class="w-16 h-16 rounded-full bg-gradient-to-tr from-teal-400 to-amber-300 mx-auto mb-3 flex items-center justify-center text-3xl shadow-md border-4 border-teal-200 animate-float">
+            🏝️
+          </div>
+          <h3 class="text-xl font-black text-teal-950">FHYA • @fhya.cozy</h3>
+          <p class="text-xs font-bold text-teal-600 uppercase tracking-wider mt-0.5">Play Together Cozy Creator</p>
+          <p class="text-sm text-slate-600 mt-3 leading-relaxed">
+            ¡Hola! Soy Fhya. En mi Instagram comparto ideas de decoración pastel, looks kawaii, pesca relajante y fiestas en <strong>Play Together</strong>.
+          </p>
+          <div class="grid grid-cols-3 gap-2 my-4 bg-teal-50 p-3 rounded-2xl border border-teal-200">
+            <div><span class="block font-black text-teal-950 text-lg">162</span><span class="text-[11px] font-bold text-slate-500">Posts IG</span></div>
+            <div><span class="block font-black text-teal-950 text-lg">24.8K</span><span class="text-[11px] font-bold text-slate-500">Neighbors</span></div>
+            <div><span class="block font-black text-teal-950 text-lg">★ 999</span><span class="text-[11px] font-bold text-slate-500">House Likes</span></div>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-2">
+            <a href="https://www.instagram.com/fhya.cozy?jplx=MTNidHg0MjlncTJwaw==" target="_blank" rel="noopener noreferrer" class="flex-1 py-2.5 rounded-full bg-gradient-to-r from-teal-500 to-emerald-500 text-white font-extrabold text-sm shadow-md hover:opacity-95 transition-opacity inline-flex items-center justify-center">
+              <i class="fa-brands fa-instagram mr-1.5"></i> Ir a @fhya.cozy
+            </a>
+            <button onclick="copyTextFallback('@fhya.cozy'); showToast('✨ Usuario @fhya.cozy copiado!'); closeModal();" class="py-2.5 px-4 rounded-full bg-teal-100 hover:bg-teal-200 text-teal-900 font-extrabold text-sm transition-colors">
+              Copiar @
+            </button>
+          </div>
+        </div>
+      `;
+      openModal();
+    }
+
+    function openVersionModal(ver) {
+      const data = {
+        house: {
+          badge: 'Decoración Cozy • @fhya.cozy',
+          title: 'House Ver. • Pastel Cottage',
+          emoji: '🏡',
+          likes: '4,920',
+          gradient: 'from-rose-300 via-amber-200 to-teal-200',
+          desc: 'Diseño de casita pastel en Isla Kaia con tejado rosa fresa, jardín de flores y cafetería interior lista para recibir amigos en Home Party.'
+        },
+        kaia: {
+          badge: 'Aventura en Isla Kaia • @fhya.cozy',
+          title: 'Kaia Ver. • Sunset Fishing',
+          emoji: '🎣',
+          likes: '3,780',
+          gradient: 'from-sky-400 via-teal-400 to-emerald-400',
+          desc: 'Tarde tranquila pescando sombras gigantes con coronita en el muelle mientras cuidamos nuestro huevo de mascota.'
+        },
+        smol: {
+          badge: 'Icono Libre • @fhya.cozy',
+          title: 'Smol Ver. • Chibi Duckling',
+          emoji: '🐤',
+          likes: '5,140',
+          gradient: 'from-amber-200 via-yellow-100 to-teal-100',
+          desc: 'Icono chibi de Fhya con su patito en la cabeza. ¡Puedes usarlo en tu perfil etiquetando a @fhya.cozy!'
+        }
+      }[ver];
+
+      modalBody.innerHTML = `
+        <div class="text-center">
+          <div class="w-full h-28 rounded-2xl bg-gradient-to-r ${data.gradient} mb-4 flex items-center justify-center relative overflow-hidden shadow-inner">
+            <span class="text-5xl animate-float">${data.emoji}</span>
+            <span class="absolute bottom-2 right-3 bg-black/35 backdrop-blur-xs text-white text-[11px] font-bold px-2.5 py-0.5 rounded-full">
+              ♥ ${data.likes}
+            </span>
+          </div>
+          <span class="inline-block text-[11px] font-extrabold uppercase tracking-wider bg-teal-100 text-teal-800 px-3 py-1 rounded-full mb-1.5">
+            ${data.badge}
+          </span>
+          <h3 class="text-xl font-black text-teal-950">${data.title}</h3>
+          <p class="text-sm text-slate-600 mt-2.5 leading-relaxed">${data.desc}</p>
+          <a href="https://www.instagram.com/fhya.cozy?jplx=MTNidHg0MjlncTJwaw==" target="_blank" rel="noopener noreferrer" class="mt-5 w-full py-2.5 rounded-full bg-teal-500 hover:bg-teal-600 text-white font-extrabold text-sm shadow-md transition-colors inline-flex items-center justify-center">
+            <i class="fa-brands fa-instagram mr-1.5"></i> Ver más en @fhya.cozy
+          </a>
+        </div>
+      `;
+      openModal();
+    }
+
+    function openGalleryModal() {
+      modalBody.innerHTML = `
+        <div>
+          <div class="flex items-center gap-2.5 mb-3">
+            <span class="w-9 h-9 rounded-full bg-gradient-to-tr from-teal-500 to-amber-400 text-white flex items-center justify-center shadow-xs"><i class="fa-brands fa-instagram"></i></span>
+            <div>
+              <h3 class="text-lg font-black text-teal-950 leading-none">Posts &amp; Decoraciones Kaia</h3>
+              <span class="text-xs font-bold text-teal-600">@fhya.cozy • Play Together</span>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-3 my-4">
+            <div onclick="openVersionModal('house')" class="cursor-pointer bg-rose-50 hover:bg-rose-100 transition-colors p-3.5 rounded-2xl border border-rose-200 text-center group">
+              <div class="text-2xl mb-1 group-hover:scale-110 transition-transform">🏡</div>
+              <p class="font-extrabold text-xs text-rose-950">Tour Casita Pastel</p>
+              <span class="text-[10px] text-rose-600 font-bold">♥ 4.9K likes</span>
+            </div>
+            <div onclick="openVersionModal('kaia')" class="cursor-pointer bg-cyan-50 hover:bg-cyan-100 transition-colors p-3.5 rounded-2xl border border-cyan-200 text-center group">
+              <div class="text-2xl mb-1 group-hover:scale-110 transition-transform">🎣</div>
+              <p class="font-extrabold text-xs text-cyan-950">Guía Pesca Rara</p>
+              <span class="text-[10px] text-cyan-700 font-bold">♥ 3.7K likes</span>
+            </div>
+            <div onclick="openVersionModal('smol')" class="cursor-pointer bg-amber-50 hover:bg-amber-100 transition-colors p-3.5 rounded-2xl border border-amber-200 text-center group">
+              <div class="text-2xl mb-1 group-hover:scale-110 transition-transform">🐤</div>
+              <p class="font-extrabold text-xs text-amber-950">Pack Icons Patito</p>
+              <span class="text-[10px] text-amber-700 font-bold">♥ 5.1K likes</span>
+            </div>
+            <div onclick="copyGameID(); closeModal();" class="cursor-pointer bg-emerald-50 hover:bg-emerald-100 transition-colors p-3.5 rounded-2xl border border-emerald-200 text-center group">
+              <div class="text-2xl mb-1 group-hover:scale-110 transition-transform">🏝️</div>
+              <p class="font-extrabold text-xs text-emerald-950">Agregar en Juego</p>
+              <span class="text-[10px] text-emerald-700 font-bold">Copiar Nick Kaia</span>
+            </div>
+          </div>
+          <a href="https://www.instagram.com/fhya.cozy?jplx=MTNidHg0MjlncTJwaw==" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 rounded-full bg-gradient-to-r from-teal-500 to-emerald-500 hover:opacity-95 text-white font-extrabold text-xs sm:text-sm shadow-md transition-all inline-flex items-center justify-center">
+            <i class="fa-brands fa-instagram mr-1.5"></i> Seguir en Instagram (@fhya.cozy)
+          </a>
+        </div>
+      `;
+      openModal();
+    }
+
+    function openSocialModal(type) {
+      if (type === 'dm') {
+        modalBody.innerHTML = `
+          <div class="text-center">
+            <div class="w-12 h-12 rounded-full bg-teal-100 text-teal-600 flex items-center justify-center text-xl mx-auto mb-2">
+              <i class="fa-solid fa-paper-plane"></i>
+            </div>
+            <h3 class="text-lg font-black text-teal-950">Enviar saludo a FHYA</h3>
+            <p class="text-xs text-slate-500 mb-3">Deja un mensajito cozy para @fhya.cozy</p>
+            <input id="dm-input" type="text" placeholder="¡Me encanta tu casita en Play Together! 🏡✨" class="w-full px-4 py-2.5 rounded-2xl border-2 border-teal-200 focus:border-teal-400 focus:outline-none text-sm mb-3">
+            <button onclick="sendQuickDM()" class="w-full py-2.5 rounded-full bg-teal-500 hover:bg-teal-600 text-white font-extrabold text-sm shadow-md">
+              Enviar Mensaje Cozy
+            </button>
+          </div>
+        `;
+        openModal();
+      }
+    }
+
+    function sendQuickDM() {
+      const input = document.getElementById('dm-input');
+      const val = input ? input.value.trim() : '';
+      if (!val) {
+        showToast('✍️ Escribe un mensajito primero');
+        return;
+      }
+      closeModal();
+      showToast('💌 ¡Mensaje enviado al buzón de FHYA en Isla Kaia!');
+    }
+  </script>
+</body>
+</html>
